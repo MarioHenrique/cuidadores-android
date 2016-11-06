@@ -1,0 +1,42 @@
+<resources>
+    <string name="app_name">Cuidadores</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password (optional)</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+    <string name="busca_zipcode">CEP</string>
+    <string name="busca_bairro">Bairro</string>
+    <string name="busca_cidade">Cidade</string>
+    <string name="busca_rua">Rua</string>
+    <string name="busca_estado">Estado</string>
+    <string name="busca_email">Email</string>
+    <string name="busca_nome">Nome</string>
+    <string name="busca_disponibilidade">Disponibilidade</string>
+    <string name="busca_periodo">Período</string>
+    <string name="busca_botao">Buscar</string>
+
+    <string name="cadastro_zipcode">CEP</string>
+    <string name="cadastro_bairro">Bairro</string>
+    <string name="cadastro_cidade">Cidade</string>
+    <string name="cadastro_rua">Rua</string>
+    <string name="cadastro_estado">Estado</string>
+    <string name="cadastro_email">Email</string>
+    <string name="cadastro_nome">Nome</string>
+    <string name="cadastro_contato">Contato</string>
+    <string name="cadastro_disponibilidade">Disponibilidade</string>
+    <string name="cadastro_periodo">Período</string>
+    <string name="cadastro_senha">Senha</string>
+    <string name="cadastro_perfil">Perfil</string>
+    <string name="cadastro_botao">Cadastrar</string>
+
+    <string name="login_entrar">Entrar</string>
+</resources>
