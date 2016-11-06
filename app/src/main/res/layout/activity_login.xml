@@ -34,4 +34,5 @@
         android:id="@+id/login_cadastrar"
         android:text="@string/cadastro_botao"
         android:onClick="cadastrar"/>
+
 </LinearLayout>

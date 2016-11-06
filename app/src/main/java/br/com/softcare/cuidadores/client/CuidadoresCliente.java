@@ -1,5 +1,7 @@
 package br.com.softcare.cuidadores.client;
 
+import android.app.ProgressDialog;
+
 import br.com.softcare.cuidadores.dto.BuscaDeCuidadoresDTO;
 import br.com.softcare.cuidadores.dto.ListaDeCuidadores;
 import br.com.softcare.cuidadores.dto.Usuario;
@@ -12,7 +14,7 @@ public final class CuidadoresCliente {
 
 	private usuarioService userService = new usuarioService();
 	private CuidadorService cuidadoreService = new CuidadorService();
-	
+	private ProgressDialog p;
 	private String token = null;
 	
 	/**

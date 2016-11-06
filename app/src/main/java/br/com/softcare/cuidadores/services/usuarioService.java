@@ -1,5 +1,7 @@
 package br.com.softcare.cuidadores.services;
 
+import android.util.Log;
+
 import static br.com.softcare.cuidadores.enuns.API_URLS.API_USER;
 
 import br.com.softcare.cuidadores.client.RestExecuter;
