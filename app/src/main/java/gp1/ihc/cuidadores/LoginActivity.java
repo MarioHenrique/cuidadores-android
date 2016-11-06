@@ -3,6 +3,7 @@ package gp1.ihc.cuidadores;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -27,7 +28,9 @@ public class LoginActivity extends AppCompatActivity {
             WebServices.cuidadores.login(email, senha);
             startActivity(intentBusca);
         } catch (BusinessException e) {
-            Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+            String mensagem = "Erro ao fazer ao login:" + e.getMessage();
+            Log.d("Login", e.getMessage());
+            Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
         }
 
 
