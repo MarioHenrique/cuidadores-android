@@ -15,7 +15,7 @@ public class LoginActivity extends AppCompatActivity {
 
     public void entrar(View view) {
         Intent intentBusca = new Intent(this, BuscaActivity.class);
-         startActivity(intentBusca);
+        startActivity(intentBusca);
     }
 
     public void cadastrar(View view) {
