@@ -20,7 +20,7 @@ public class BuscaActivity extends AppCompatActivity {
         botaoBuscar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(BuscaActivity.this, "Buscando...", Toast.LENGTH_SHORT).show();
+                Toast.makeText(BuscaActivity.this, "Buscando....", Toast.LENGTH_SHORT).show();
                 try {
                     Thread.sleep(1000);
                 } catch (InterruptedException e) {
