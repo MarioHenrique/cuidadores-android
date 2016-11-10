@@ -1,16 +1,21 @@
 package br.com.softcare.cuidadores.dto;
 
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown=true)
-public class ListaDeCuidadores {
+public class ListaDeCuidadores implements Serializable {
 
 	@JsonProperty("content")
 	private List<Cuidador> cuidadores = new ArrayList<>();
+
+
 
 	@JsonProperty("number")
 	private Long pagina;
@@ -57,6 +62,21 @@ public class ListaDeCuidadores {
 
 	public void setTotalDeElementos(Long totalDeElementos) {
 		this.totalDeElementos = totalDeElementos;
+	}
+
+	private List<Map<String, Object>> mapListCuidadores;
+
+	public List<Map<String, Object>> getMapListCuidadores() {
+		if (mapListCuidadores == null) {
+			mapListCuidadores = new ArrayList<Map<String, Object>>();
+			for (Cuidador cuidador: cuidadores) {
+				Map<String, Object> item = new HashMap<String, Object>();
+				item.put("nome", cuidador.getEmail());
+				item.put("contato", cuidador.getContato());
+				item.put("email", cuidador.getEmail());
+			}
+		}
+		return mapListCuidadores;
 	}
 
 }

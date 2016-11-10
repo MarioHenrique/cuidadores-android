@@ -19,6 +19,11 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/busca_rua"
+        android:hint="Rua" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/busca_bairro"
         android:hint="@string/busca_bairro" />
     <EditText
@@ -39,8 +44,8 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/busca_nome"
-        android:hint="@string/busca_nome" />
+        android:id="@+id/busca_contato"
+        android:hint="Contato" />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -55,6 +60,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/busca_botao"
-        android:hint="@string/busca_botao" />
+        android:hint="@string/busca_botao"
+        android:onClick="buscar"/>
 
 </LinearLayout>

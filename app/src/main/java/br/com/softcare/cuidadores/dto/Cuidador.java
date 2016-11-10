@@ -1,5 +1,6 @@
 package br.com.softcare.cuidadores.dto;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -10,7 +11,7 @@ import br.com.softcare.cuidadores.enuns.Disponibilidade;
 import br.com.softcare.cuidadores.enuns.Periodo;
 
 @JsonIgnoreProperties(ignoreUnknown=true)
-public class Cuidador {
+public class Cuidador implements Serializable {
 
 	@JsonProperty("id")
 	private Long id;

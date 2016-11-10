@@ -19,6 +19,12 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/cadastro_zipcode"
+        android:hint="@string/cadastro_zipcode"
+        android:inputType="number"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/cadastro_email"
         android:hint="@string/cadastro_email"
         android:inputType="textEmailAddress"/>
@@ -34,27 +40,26 @@
         android:hint="@string/cadastro_senha"
         android:inputType="textPassword"
         />
-    <EditText
+
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/cadastro_periodo"
-        android:hint="@string/cadastro_periodo" />
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/cadastro_zipcode"
-        android:hint="@string/cadastro_zipcode"
-        android:inputType="number"/>
-    <EditText
+        android:text="Perfil"/>
+    <Spinner
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/cadastro_perfil"
-        android:hint="@string/cadastro_perfil" />
+        android:spinnerMode="dropdown"
+        >
+    </Spinner>
+
+
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/cadastro_botao"
-        android:hint="@string/cadastro_botao" />
+        android:hint="@string/cadastro_botao"
+        android:onClick="cadastrar"/>
 
 </LinearLayout>

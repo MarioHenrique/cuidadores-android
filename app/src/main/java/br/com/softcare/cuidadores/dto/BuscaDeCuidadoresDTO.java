@@ -2,7 +2,6 @@ package br.com.softcare.cuidadores.dto;
 
 import java.util.HashSet;
 import java.util.Set;
-import java.util.StringJoiner;
 
 import br.com.softcare.cuidadores.enuns.Disponibilidade;
 import br.com.softcare.cuidadores.enuns.Periodo;
@@ -30,21 +29,23 @@ public class BuscaDeCuidadoresDTO {
 	private Set<Disponibilidade> disponibilidade = new HashSet<>();
 
 	public String disponibilidadeAsString() {
-		StringJoiner join = new StringJoiner(",");
+		StringBuilder sb = new StringBuilder();
+
 		for (Disponibilidade disp : disponibilidade) {
-			join.add(disp.toString());
+			sb.append(disp.toString()).append(",");
 		}
-		return join.length()==0?null:join.toString();
+		return sb.length()==0?null:sb.toString();
 	}
 
 	private Set<Periodo> periodo = new HashSet<>();
 
 	public String periodoAsString() {
-		StringJoiner join = new StringJoiner(",");
+		StringBuilder sb = new StringBuilder();
+
 		for (Periodo per : periodo) {
-			join.add(per.toString());
+			sb.append(per.toString()).append(",");
 		}
-		return join.length()==0?null:join.toString();
+		return sb.length()==0?null:sb.toString();
 	}
 
 	public void adicionarPeriodo(Periodo periodo) {

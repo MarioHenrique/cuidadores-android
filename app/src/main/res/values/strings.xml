@@ -38,5 +38,26 @@
     <string name="cadastro_perfil">Perfil</string>
     <string name="cadastro_botao">Cadastrar</string>
 
+    <string-array name="disponibilidade">
+        <item>SEGUNDA</item>
+        <item>TERCA</item>
+        <item>QUARTA</item>
+        <item>QUINTA</item>
+        <item>SEXTA</item>
+        <item>SABADO</item>
+        <item>DOMINGO</item>
+    </string-array>
+
+    <string-array name="perfil">
+        <item>RESPONSAVEL</item>
+        <item>CUIDADOR</item>
+    </string-array>
+
+    <string-array name="periodo">
+        <item>MANHA</item>
+        <item>TARDE</item>
+        <item>NOITE</item>
+    </string-array>
+
     <string name="login_entrar">Entrar</string>
 </resources>

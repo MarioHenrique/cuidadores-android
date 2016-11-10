@@ -1,5 +1,6 @@
 package br.com.softcare.cuidadores.dto;
 
+import java.io.Serializable;
 import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -10,7 +11,7 @@ import br.com.softcare.cuidadores.enuns.Perfil;
 import br.com.softcare.cuidadores.enuns.Periodo;
 
 @JsonIgnoreProperties(ignoreUnknown=true)
-public class Usuario {
+public class Usuario implements Serializable{
 
 	@JsonProperty("id")
 	private Long id;
