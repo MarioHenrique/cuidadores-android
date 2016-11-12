@@ -10,6 +10,12 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="gp1.ihc.cuidadores.CadastroActivity"
     android:orientation="vertical">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/cadastro_nome"
+        android:hint="@string/cadastro_nome" />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -28,11 +34,6 @@
         android:id="@+id/cadastro_email"
         android:hint="@string/cadastro_email"
         android:inputType="textEmailAddress"/>
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/cadastro_nome"
-        android:hint="@string/cadastro_nome" />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
