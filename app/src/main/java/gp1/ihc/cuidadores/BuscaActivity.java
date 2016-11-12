@@ -102,15 +102,6 @@ public class BuscaActivity extends AppCompatActivity {
         //Coloco o dialog de carregamento
         progress = ProgressDialog.show(this,"Por favor aguarde", "Processando", true);
 
-
-        Toast.makeText(BuscaActivity.this, "Buscando.........", Toast.LENGTH_SHORT).show();
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            Toast.makeText(BuscaActivity.this, "Erro ao buscar", Toast.LENGTH_SHORT).show();
-        }
-
-        startActivity(intentLista);
     }
 
 
