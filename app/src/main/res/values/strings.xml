@@ -31,7 +31,7 @@
     <string name="cadastro_estado">Estado</string>
     <string name="cadastro_email">Email</string>
     <string name="cadastro_nome">Nome</string>
-    <string name="cadastro_contato">Contato</string>
+    <string name="cadastro_contato">Telefone</string>
     <string name="cadastro_disponibilidade">Disponibilidade</string>
     <string name="cadastro_periodo">Período</string>
     <string name="cadastro_senha">Senha</string>
