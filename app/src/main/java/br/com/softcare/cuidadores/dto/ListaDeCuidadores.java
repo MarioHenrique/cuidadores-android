@@ -74,6 +74,7 @@ public class ListaDeCuidadores implements Serializable {
 				item.put("nome", cuidador.getEmail());
 				item.put("contato", cuidador.getContato());
 				item.put("email", cuidador.getEmail());
+				mapListCuidadores.add(item);
 			}
 		}
 		return mapListCuidadores;
