@@ -1,4 +1,4 @@
-package gp1.ihc.cuidadores.ws;
+package br.com.softcare.cuidadores.client;
 
 import br.com.softcare.cuidadores.client.CuidadoresCliente;
 

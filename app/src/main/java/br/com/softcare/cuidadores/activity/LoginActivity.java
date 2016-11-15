@@ -1,19 +1,17 @@
-package gp1.ihc.cuidadores;
+package br.com.softcare.cuidadores.activity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import br.com.softcare.cuidadores.client.CuidadoresCliente;
-import br.com.softcare.cuidadores.dto.Usuario;
 import br.com.softcare.cuidadores.exceptions.BusinessException;
-import gp1.ihc.cuidadores.ws.WebServices;
+import gp1.ihc.cuidadores.R;
+import br.com.softcare.cuidadores.client.WebServices;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -27,7 +25,7 @@ public class LoginActivity extends AppCompatActivity {
 
     public void entrar(View view) {
         //O intent para navegação precisa ficar fora do bloco da thread
-        final Intent intentBusca = new Intent(this, BuscaActivity.class);
+        final Intent intentBusca = new Intent(this, MenuActivity.class);
 
         //Nova thread para fazer a chamada do webService
         Thread rest = new Thread(new Runnable() {

@@ -1,4 +1,4 @@
-package gp1.ihc.cuidadores;
+package br.com.softcare.cuidadores.utils;
 
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;

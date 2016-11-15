@@ -4,12 +4,14 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum Perfil {
 
-	RESPONSAVEL("RESPONSABLE"),CUIDADOR("CAREGIVER");
+	RESPONSAVEL("RESPONSABLE","Responsavel"),CUIDADOR("CAREGIVER","Cuidador");
 
 	private String perfil;
+	private String label;
 
-	private Perfil(String perfil){
+	private Perfil(String perfil,String label){
 		this.perfil = perfil;
+		this.label = label;
 	}
 
 	@Override
@@ -17,5 +19,8 @@ public enum Perfil {
 	public String toString() {
 		return perfil;
 	}
-	
+
+	public String getLabel() {
+		return label;
+	}
 }

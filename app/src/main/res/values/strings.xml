@@ -36,7 +36,7 @@
     <string name="cadastro_periodo">Período</string>
     <string name="cadastro_senha">Senha</string>
     <string name="cadastro_perfil">Perfil</string>
-    <string name="cadastro_botao">Cadastrar</string>
+    <string name="cadastro_botao">Crie sua conta</string>
 
     <string-array name="disponibilidade">
         <item>SEGUNDA</item>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_login"
     android:layout_width="match_parent"
@@ -8,31 +9,57 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="gp1.ihc.cuidadores.LoginActivity"
+    tools:context="br.com.softcare.cuidadores.activity.LoginActivity"
     android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="124dp"
+        app:srcCompat="@drawable/logocompleto"
+        android:id="@+id/imageView" />
+
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/login_email"
         android:hint="@string/cadastro_email"
-        android:inputType="textEmailAddress"/>
+        android:textColorHint="#52ab7d"
+        android:inputType="textEmailAddress"
+        android:layout_marginTop="16dp"/>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/login_senha"
         android:hint="@string/cadastro_senha"
+        android:textColorHint="#52ab7d"
         android:inputType="textPassword"/>
+
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/login_entrar"
         android:text="@string/login_entrar"
-        android:onClick="entrar"/>
-    <Button
+        android:onClick="entrar"
+        android:textColor="#52ab7d"
+        android:background="@drawable/fundobotao"
+        android:stateListAnimator="@null"
+        android:layout_marginTop="16dp"/>
+    <TextView
+        android:text="primeiro acesso?"
+        android:textColor="#52ab7d"
+        android:textAlignment="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
         android:id="@+id/login_cadastrar"
         android:text="@string/cadastro_botao"
-        android:onClick="cadastrar"/>
+        android:onClick="cadastrar"
+        android:textColor="#52ab7d"
+        android:background="@drawable/fundobotao"
+        android:stateListAnimator="@null"
+        android:layout_marginTop="1dp"/>
 
 </LinearLayout>

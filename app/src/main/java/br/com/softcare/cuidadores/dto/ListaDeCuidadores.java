@@ -15,8 +15,6 @@ public class ListaDeCuidadores implements Serializable {
 	@JsonProperty("content")
 	private List<Cuidador> cuidadores = new ArrayList<>();
 
-
-
 	@JsonProperty("number")
 	private Long pagina;
 
@@ -62,22 +60,6 @@ public class ListaDeCuidadores implements Serializable {
 
 	public void setTotalDeElementos(Long totalDeElementos) {
 		this.totalDeElementos = totalDeElementos;
-	}
-
-	private List<Map<String, Object>> mapListCuidadores;
-
-	public List<Map<String, Object>> getMapListCuidadores() {
-		if (mapListCuidadores == null) {
-			mapListCuidadores = new ArrayList<Map<String, Object>>();
-			for (Cuidador cuidador: cuidadores) {
-				Map<String, Object> item = new HashMap<String, Object>();
-				item.put("nome", cuidador.getEmail());
-				item.put("contato", cuidador.getContato());
-				item.put("email", cuidador.getEmail());
-				mapListCuidadores.add(item);
-			}
-		}
-		return mapListCuidadores;
 	}
 
 }

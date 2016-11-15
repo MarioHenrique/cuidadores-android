@@ -15,7 +15,10 @@ public class Cuidador implements Serializable {
 
 	@JsonProperty("id")
 	private Long id;
-	
+
+	@JsonProperty("name")
+	private String nome;
+
 	@JsonProperty("zipCode")
 	private String cep;
 	
@@ -129,5 +132,12 @@ public class Cuidador implements Serializable {
 	public void setRua(String rua) {
 		this.rua = rua;
 	}
-	
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
 }

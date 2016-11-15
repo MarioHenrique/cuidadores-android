@@ -8,49 +8,57 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="gp1.ihc.cuidadores.CadastroActivity"
+    tools:context="br.com.softcare.cuidadores.activity.CadastroActivity"
     android:orientation="vertical">
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/cadastro_nome"
+        android:textColorHint="#52ab7d"
         android:hint="@string/cadastro_nome" />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/cadastro_contato"
         android:hint="@string/cadastro_contato"
+        android:textColorHint="#52ab7d"
         android:inputType="phone"/>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/cadastro_zipcode"
         android:hint="@string/cadastro_zipcode"
+        android:textColorHint="#52ab7d"
         android:inputType="number"/>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/cadastro_email"
         android:hint="@string/cadastro_email"
+        android:textColorHint="#52ab7d"
         android:inputType="textEmailAddress"/>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/cadastro_senha"
         android:hint="@string/cadastro_senha"
+        android:textColorHint="#52ab7d"
         android:inputType="textPassword"
         />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Perfil"/>
+        android:textColorHint="#52ab7d"
+        android:layout_marginTop="10dp"
+        android:text="Perfil"
+        android:textColor="#52ab7d"/>
     <Spinner
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/cadastro_perfil"
-        android:spinnerMode="dropdown"
+        android:spinnerMode="dialog"
         >
     </Spinner>
 
@@ -61,6 +69,9 @@
         android:layout_height="wrap_content"
         android:id="@+id/cadastro_botao"
         android:hint="@string/cadastro_botao"
+        android:textColorHint="#52ab7d"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/fundobotao"
         android:onClick="cadastrar"/>
 
 </LinearLayout>

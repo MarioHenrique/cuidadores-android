@@ -2,6 +2,7 @@ package br.com.softcare.cuidadores.dto;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.StringJoiner;
 
 import br.com.softcare.cuidadores.enuns.Disponibilidade;
 import br.com.softcare.cuidadores.enuns.Periodo;
@@ -32,8 +33,12 @@ public class BuscaDeCuidadoresDTO {
 		StringBuilder sb = new StringBuilder();
 
 		for (Disponibilidade disp : disponibilidade) {
-			sb.append(disp.toString()).append(",");
+			if(sb.length()!=0){
+				sb.append(",");
+			}
+			sb.append(disp.toString());
 		}
+
 		return sb.length()==0?null:sb.toString();
 	}
 
@@ -43,8 +48,12 @@ public class BuscaDeCuidadoresDTO {
 		StringBuilder sb = new StringBuilder();
 
 		for (Periodo per : periodo) {
-			sb.append(per.toString()).append(",");
+			if(sb.length()!=0){
+				sb.append(",");
+			}
+			sb.append(per.toString());
 		}
+
 		return sb.length()==0?null:sb.toString();
 	}
 

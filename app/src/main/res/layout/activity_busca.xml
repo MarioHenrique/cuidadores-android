@@ -1,66 +1,182 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    tools:context="br.com.softcare.cuidadores.activity.BuscaActivity"
     android:id="@+id/activity_busca"
     android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<LinearLayout
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="gp1.ihc.cuidadores.BuscaActivity"
     android:orientation="vertical">
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/busca_zipcode"
+        android:textColorHint="#52ab7d"
         android:hint="@string/busca_zipcode" />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/busca_rua"
+        android:textColorHint="#52ab7d"
         android:hint="Rua" />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/busca_bairro"
+        android:textColorHint="#52ab7d"
         android:hint="@string/busca_bairro" />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/busca_cidade"
+        android:textColorHint="#52ab7d"
         android:hint="@string/busca_cidade" />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/busca_estado"
+        android:textColorHint="#52ab7d"
         android:hint="@string/busca_estado" />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/busca_email"
+        android:textColorHint="#52ab7d"
         android:hint="@string/busca_email" />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/busca_contato"
+        android:textColorHint="#52ab7d"
         android:hint="Telefone" />
-    <EditText
-        android:layout_width="match_parent"
+
+
+    <TextView
+        android:text="Disponobilidade"
+        android:textSize="20sp"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/busca_disponibilidade"
-        android:hint="@string/busca_disponibilidade" />
-    <EditText
+        android:textColor="#52ab7d"
+        />
+
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <CheckBox
+            android:text="Segunda"
+            android:textColor="#52ab7d"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/busca_segunda" />
+
+        <CheckBox
+            android:text="Terça"
+            android:textColor="#52ab7d"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/busca_terca" />
+
+        <CheckBox
+            android:text="Quarta"
+            android:textColor="#52ab7d"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/busca_quarta"/>
+
+        <CheckBox
+            android:text="Quinta"
+            android:textColor="#52ab7d"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/busca_quinta"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <CheckBox
+            android:text="Sexta"
+            android:textColor="#52ab7d"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/busca_sexta" />
+
+        <CheckBox
+            android:text="Sabado"
+            android:textColor="#52ab7d"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/busca_sabado" />
+
+        <CheckBox
+            android:text="Domingo"
+            android:textColor="#52ab7d"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/busca_domingo"/>
+
+    </LinearLayout>
+
+
+
+
+    <TextView
+        android:text="Periodo"
+        android:textSize="20sp"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/busca_periodo"
-        android:hint="@string/busca_periodo" />
+        android:textColor="#52ab7d"
+        />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <CheckBox
+            android:text="Manhã"
+            android:textColor="#52ab7d"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/busca_manha" />
+
+        <CheckBox
+            android:text="Tarde"
+            android:textColor="#52ab7d"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/busca_tarde" />
+
+        <CheckBox
+            android:text="Noite"
+            android:textColor="#52ab7d"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/busca_noite"/>
+
+    </LinearLayout>
+
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/busca_botao"
-        android:hint="@string/busca_botao"
-        android:onClick="buscar"/>
+        android:textColor="#52ab7d"
+        android:layout_marginTop="10dp"
+        android:text="BUSCAR"
+        android:onClick="buscar"
+        android:background="@drawable/fundobotao"
+        />
 
-</LinearLayout>
+    </LinearLayout>
+</ScrollView>
