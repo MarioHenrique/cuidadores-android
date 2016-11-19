@@ -16,12 +16,12 @@ public class usuarioService {
 	private RestExecuter restExecuter = new RestExecuter();
 
 	public Usuario cadastroDeUsuario(UsuarioAlteracao usuario) throws BusinessException {
-			return restExecuter.post(API_USER, usuario, Usuario.class);
+			return restExecuter.post(null,API_USER, usuario, Usuario.class);
 	}
 
 	public Usuario login(String email, String senha) throws BusinessException {
 		UsuarioLogin usuarioLogin = new UsuarioLogin(email,senha);
-		return restExecuter.post(API_URLS.API_USER_LOGIN, usuarioLogin, Usuario.class);
+		return restExecuter.post(null,API_URLS.API_USER_LOGIN, usuarioLogin, Usuario.class);
 	}
 
 	public Usuario atualizar(UsuarioAlteracao usuario, String token) throws BusinessException {

@@ -1,5 +1,6 @@
 package br.com.softcare.cuidadores.client;
 
+import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -10,6 +11,8 @@ import org.springframework.web.client.RestTemplate;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
+import java.util.List;
 
 import br.com.softcare.cuidadores.enuns.API_URLS;
 import br.com.softcare.cuidadores.exceptions.BusinessException;
@@ -25,9 +28,15 @@ public final class RestExecuter {
 		restTemplate = new RestTemplate();
 	}
 
-	public <T> T post(API_URLS apiUser, Object body, Class<T> responseClass, Object... uri) throws BusinessException {
+	public void delete(String token,API_URLS apiUser,Long id) throws BusinessException {
+		final HttpHeaders headers = getHeaders(token);
+		final HttpEntity<String> httpEntity = new HttpEntity<>(headers);
+		execute(apiUser.getUrl(),HttpMethod.DELETE,httpEntity,String.class,id);
+	}
+
+	public <T> T post(String token,API_URLS apiUser, Object body, Class<T> responseClass, Object... uri) throws BusinessException {
 		try {
-			HttpHeaders httpHeaders = getHeaders(null);
+			HttpHeaders httpHeaders = getHeaders(token);
 			String bodyJson = objectMapper.writeValueAsString(body);
 			HttpEntity<String> entity = new HttpEntity<String>(bodyJson, httpHeaders);
 
@@ -71,6 +80,28 @@ public final class RestExecuter {
 			ResponseEntity<T> responseBody = restTemplate.exchange(url, method, entity, response, uri);
 
 			return responseBody;
+		} catch (HttpStatusCodeException e) {
+			String responseBodyAsString = e.getResponseBodyAsString();
+			String message = null;
+			try {
+				ExceptionError readValue = objectMapper.readValue(responseBodyAsString, ExceptionError.class);
+				message = readValue.getMessage();
+			} catch (Exception a) {
+				message = "";
+			}
+			throw new BusinessException(message);
+		} catch (Exception e) {
+			throw new BusinessException(e.getMessage());
+		}
+	}
+
+	public <T> List<T> getList(String token, API_URLS apiUrls, Class<T> responseClass) throws BusinessException {
+		final HttpHeaders headers = getHeaders(token);
+		final HttpEntity<String> entity = new HttpEntity<>(headers);
+		ParameterizedTypeReference<List<T>> responseListType = new ParameterizedTypeReference<List<T>>() {};
+		try{
+			final ResponseEntity<List<T>> result = restTemplate.exchange(apiUrls.getUrl(), HttpMethod.GET, entity, responseListType);
+			return result.getBody();
 		} catch (HttpStatusCodeException e) {
 			String responseBodyAsString = e.getResponseBodyAsString();
 			String message = null;

@@ -2,7 +2,11 @@ package br.com.softcare.cuidadores.client;
 
 import android.app.ProgressDialog;
 
+import java.util.Collections;
+import java.util.List;
+
 import br.com.softcare.cuidadores.dto.BuscaDeCuidadoresDTO;
+import br.com.softcare.cuidadores.dto.EspecialidadeDTO;
 import br.com.softcare.cuidadores.dto.ListaDeCuidadores;
 import br.com.softcare.cuidadores.dto.Usuario;
 import br.com.softcare.cuidadores.dto.UsuarioAlteracao;
@@ -68,5 +72,30 @@ public final class CuidadoresCliente {
 	public ListaDeCuidadores buscaDeCuidadores(BuscaDeCuidadoresDTO buscaDeCuidadoresDTO) throws BusinessException{
 		return cuidadoreService.buscaDeCuidadores(buscaDeCuidadoresDTO,token);
 	}
-	
+
+	/**
+	 * 	Metodo responsavel pela criação de uma especialidade
+	 * @return Especialidade criada com seu id
+     */
+	public EspecialidadeDTO cadastroDeEspecialidade(EspecialidadeDTO especialidadeDTO) throws BusinessException {
+		return cuidadoreService.criacaoDeEspecialidade(especialidadeDTO,token);
+	}
+
+	/**
+	 *  Realiza a alteração da especialidade do cuidador logado na aplicação
+	 * @param especialidadeDTO especialidade a ser alterada
+	 * @return
+	 * @throws BusinessException
+     */
+	public EspecialidadeDTO atualizarEspecialidade(EspecialidadeDTO especialidadeDTO) throws BusinessException {
+		return cuidadoreService.atualizarEspecialidade(especialidadeDTO,token);
+	}
+
+	public void removeEspecialidade(EspecialidadeDTO especialidadeDTO) throws BusinessException {
+		 cuidadoreService.removerEspecialidade(especialidadeDTO,token);
+	}
+
+	public List<EspecialidadeDTO> listarEspecialidades() throws BusinessException {
+		return cuidadoreService.listarEspecialidades(token);
+	}
 }
