@@ -22,13 +22,12 @@ import br.com.softcare.cuidadores.client.WebServices;
 
 import static br.com.softcare.cuidadores.utils.Utils.getValorDaTextView;
 
-public class BuscaActivity extends AppCompatActivity {
+public class BuscaActivity extends Activity {
 
     public static final String EXTRA_LISTA_DE_CUIDADORES = "EXTRA_LIST_CUIDS";
     private static Long ELEMENTO_POR_PAGINA = 1000L;
     private static Long PAGINA_UM = 1L;
-
-    private ProgressDialog progress;
+    private ListaDeCuidadores listaDeCuidadores = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +36,11 @@ public class BuscaActivity extends AppCompatActivity {
     }
 
     public void buscar(View view) {
+        doInBackground(this);
+    }
+
+    @Override
+    protected void operation() throws Exception {
         final BuscaDeCuidadoresDTO buscaDeCuidadoresDTO = new BuscaDeCuidadoresDTO();
         buscaDeCuidadoresDTO.setCep(getValorDaTextView(this, R.id.busca_zipcode));
         buscaDeCuidadoresDTO.setRua(getValorDaTextView(this, R.id.busca_rua));
@@ -49,51 +53,19 @@ public class BuscaActivity extends AppCompatActivity {
         setarPeriodo(buscaDeCuidadoresDTO);
         buscaDeCuidadoresDTO.setElementosPorPagina(ELEMENTO_POR_PAGINA);
         buscaDeCuidadoresDTO.setPagina(PAGINA_UM);
+        listaDeCuidadores = WebServices.cuidadores.buscaDeCuidadores(buscaDeCuidadoresDTO);
+    }
 
-        Thread rest = new Thread(new Runnable() {
-
-            @Override
-            public void run() {
-
-                final Intent intentLista = new Intent(BuscaActivity.this, ListaActivity.class);
-
-                Handler mainHandler  = new Handler(getMainLooper());
-
-                try {
-
-                    final ListaDeCuidadores listaDeCuidadores = WebServices.cuidadores.buscaDeCuidadores(buscaDeCuidadoresDTO);
-
-                    mainHandler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            final List<Cuidador> cuidadores = listaDeCuidadores.getCuidadores();
-                            if(cuidadores==null || cuidadores.isEmpty()){
-                                progress.dismiss();
-                                Toast.makeText(BuscaActivity.this,"Nenhum cuidador encontrado",Toast.LENGTH_SHORT).show();
-                            }else {
-                                intentLista.putExtra(EXTRA_LISTA_DE_CUIDADORES, listaDeCuidadores);
-                                progress.dismiss();
-                                startActivity(intentLista);
-                            }
-                        }
-                    });
-                } catch (final BusinessException e) {
-                    mainHandler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            progress.dismiss();
-                            Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
-                        }
-                    });
-                }
-            }
+    @Override
+    protected void onSuccess() {
+        final List<Cuidador> cuidadores = listaDeCuidadores.getCuidadores();
+        if(cuidadores==null || cuidadores.isEmpty()){
+            Toast.makeText(BuscaActivity.this,"Nenhum cuidador encontrado",Toast.LENGTH_SHORT).show();
+        }else {
+            final Intent intentLista = new Intent(BuscaActivity.this, ListaActivity.class);
+            intentLista.putExtra(EXTRA_LISTA_DE_CUIDADORES, listaDeCuidadores);
+            startActivity(intentLista);
         }
-        );
-
-        rest.start();
-
-        progress = ProgressDialog.show(this,"Por favor aguarde", "Processando", true);
-
     }
 
     private void setarPeriodo(BuscaDeCuidadoresDTO buscaDeCuidadoresDTO) {
@@ -135,6 +107,5 @@ public class BuscaActivity extends AppCompatActivity {
     private boolean isCheckBoxChecked(int resource){
         return ((CheckBox)findViewById(resource)).isChecked();
     }
-
 
 }

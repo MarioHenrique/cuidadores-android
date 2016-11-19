@@ -60,4 +60,5 @@
     </string-array>
 
     <string name="login_entrar">Entrar</string>
+    <string name="title_activity_usuario">UsuarioActivity</string>
 </resources>

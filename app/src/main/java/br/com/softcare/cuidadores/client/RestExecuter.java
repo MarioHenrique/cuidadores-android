@@ -42,7 +42,7 @@ public final class RestExecuter {
 	private HttpHeaders getHeaders(String token) {
 		HttpHeaders httpHeaders = new HttpHeaders();
 		httpHeaders.add("Accept", MediaType.APPLICATION_JSON_VALUE);
-		httpHeaders.add("Content-Type", MediaType.APPLICATION_JSON_VALUE);
+		httpHeaders.add("Content-Type","application/json;charset=utf-8");
 		if(token!=null)
 			httpHeaders.add("token", token);
 		

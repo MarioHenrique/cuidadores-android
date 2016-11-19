@@ -7,7 +7,7 @@
     android:orientation="vertical">
 
     <Button
-        android:text="Debora Kaynara Patricio da Silva\n\n10 pacientes\n10 Cuidadores"
+        android:text=""
         android:layout_gravity="start"
         android:textAlignment="textStart"
         android:layout_marginTop="10dp"
@@ -16,7 +16,8 @@
         android:drawablePadding="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/menu_style"/>
+        android:background="@drawable/menu_style"
+        android:id="@+id/menu_usuario"/>
 
     <GridView
         android:id="@+id/gridview"

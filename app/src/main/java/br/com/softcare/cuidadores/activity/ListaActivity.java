@@ -1,6 +1,7 @@
 package br.com.softcare.cuidadores.activity;
 
 import android.app.ListActivity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -45,7 +46,9 @@ public class ListaActivity extends AppCompatActivity{
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     Cuidador cuidador =  (Cuidador)parent.getItemAtPosition(position);
-                    Toast.makeText(ListaActivity.this, cuidador.getEmail(), Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(ListaActivity.this,CuidadorActivity.class);
+                    intent.putExtra("cuidador",cuidador);
+                    startActivity(intent);
                 }
             });
 

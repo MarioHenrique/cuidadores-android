@@ -20,24 +20,23 @@ import br.com.softcare.cuidadores.client.WebServices;
 
 import static br.com.softcare.cuidadores.utils.Utils.getValorDaTextView;
 
-public class CadastroActivity extends AppCompatActivity {
-
-    private Spinner spinnerPerfil;
+public class CadastroActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro);
-
-        spinnerPerfil = (Spinner) findViewById(R.id.cadastro_perfil);
+        Spinner  spinnerPerfil = (Spinner) findViewById(R.id.cadastro_perfil);
         spinnerPerfil.setAdapter(new PerfilAdapter(this));
     }
 
-    final UsuarioAlteracao usuario = new UsuarioAlteracao();
-
-    private ProgressDialog progress;
-
     public void cadastrar(View view) {
+        doInBackground(this);
+    }
+
+    @Override
+    protected void operation() throws Exception {
+        final UsuarioAlteracao usuario = new UsuarioAlteracao();
         usuario.setContato(getValorDaTextView(this, R.id.cadastro_contato));
         usuario.setCep(getValorDaTextView(this, R.id.cadastro_zipcode));
         usuario.setEmail(getValorDaTextView(this, R.id.cadastro_email));
@@ -45,43 +44,13 @@ public class CadastroActivity extends AppCompatActivity {
         usuario.setSenha(getValorDaTextView(this, R.id.cadastro_senha));
         Spinner spinner = (Spinner) findViewById(R.id.cadastro_perfil);
         usuario.adicionarPerfil((Perfil)spinner.getSelectedItem());
+        WebServices.cuidadores.cadastrarUsuario(usuario);
+    }
 
-        Thread rest = new Thread(new Runnable() {
-
-            @Override
-            public void run() {
-
-                Handler mainHandler  = new Handler(getMainLooper());
-
-                try {
-                    WebServices.cuidadores.cadastrarUsuario(usuario);
-                    mainHandler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            progress.dismiss();
-                            Toast.makeText(getApplicationContext(), "Usuário cadastrado com sucesso.", Toast.LENGTH_SHORT).show();
-                            finish();
-
-                        }
-                    });
-
-                } catch (final BusinessException e) {
-                    mainHandler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            progress.dismiss();
-
-                            Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
-                        }
-                    });
-                }
-            }
-        }
-        );
-
-        rest.start();
-        progress = ProgressDialog.show(this,"Por favor aguarde", "Processando", true);
-
+    @Override
+    protected void onSuccess() {
+        Toast.makeText(getApplicationContext(), "Usuário cadastrado com sucesso.", Toast.LENGTH_SHORT).show();
+        finish();
     }
 
 }
