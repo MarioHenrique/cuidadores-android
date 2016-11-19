@@ -35,13 +35,12 @@ android:layout_height="match_parent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
-            android:text="Nome: "
+            android:text="@string/cuidador_nome"
             android:textColor="#52ab7d"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
         <TextView
-            android:text="Mário Henrique do Nascimento"
             android:id="@+id/cuidador_nome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
@@ -53,13 +52,12 @@ android:layout_height="match_parent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
-            android:text="Email: "
+            android:text="@string/cuidador_email"
             android:textColor="#52ab7d"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
         <TextView
-            android:text="Mário Henrique do Nascimento"
             android:id="@+id/cuidador_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
@@ -71,13 +69,12 @@ android:layout_height="match_parent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
-            android:text="Telefone: "
+            android:text="@string/cuidador_contato"
             android:textColor="#52ab7d"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
         <TextView
-            android:text="11966817820"
             android:id="@+id/cuidador_telefone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
@@ -88,13 +85,12 @@ android:layout_height="match_parent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
-            android:text="Cep: "
+            android:text="@string/cuidador_zipcode"
             android:textColor="#52ab7d"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
         <TextView
-            android:text="07155300"
             android:layout_width="match_parent"
             android:id="@+id/cuidador_cep"
             android:layout_height="wrap_content" />
@@ -107,13 +103,12 @@ android:layout_height="match_parent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
-            android:text="Bairro: "
+            android:text="@string/busca_bairro"
             android:textColor="#52ab7d"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
         <TextView
-            android:text="bairro"
             android:id="@+id/cuidador_bairro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
@@ -125,13 +120,12 @@ android:layout_height="match_parent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
-            android:text="Cidade: "
+            android:text="@string/cuidador_cidade"
             android:textColor="#52ab7d"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
         <TextView
-            android:text="cidade"
             android:id="@+id/cuidador_cidade"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
@@ -143,13 +137,12 @@ android:layout_height="match_parent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
-            android:text="Estado: "
+            android:text="@string/cuidador_estado"
             android:textColor="#52ab7d"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
         <TextView
-            android:text="Mário Henrique do Nascimento"
             android:id="@+id/cuidador_estado"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
@@ -161,13 +154,12 @@ android:layout_height="match_parent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
-            android:text="Rua: "
+            android:text="@string/cuidador_rua"
             android:textColor="#52ab7d"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
         <TextView
-            android:text="Mário Henrique do Nascimento"
             android:id="@+id/cuidador_rua"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
@@ -175,7 +167,7 @@ android:layout_height="match_parent"
     </LinearLayout>
 
     <TextView
-        android:text="Disponobilidade"
+        android:text="@string/disponibilidade"
         android:textSize="20sp"
         android:layout_marginTop="20dp"
         android:layout_width="wrap_content"
@@ -190,14 +182,14 @@ android:layout_height="match_parent"
 
         <CheckBox
             android:enabled="false"
-            android:text="Segunda"
+            android:text="@string/segunda"
             android:textColor="#52ab7d"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/cuidador_segunda" />
 
         <CheckBox
-            android:text="Terça"
+            android:text="@string/terca"
             android:enabled="false"
             android:textColor="#52ab7d"
             android:layout_width="wrap_content"
@@ -205,7 +197,7 @@ android:layout_height="match_parent"
             android:id="@+id/cuidador_terca" />
 
         <CheckBox
-            android:text="Quarta"
+            android:text="@string/quarta"
             android:enabled="false"
             android:textColor="#52ab7d"
             android:layout_width="wrap_content"
@@ -213,7 +205,7 @@ android:layout_height="match_parent"
             android:id="@+id/cuidador_quarta"/>
 
         <CheckBox
-            android:text="Quinta"
+            android:text="@string/quinta"
             android:enabled="false"
             android:textColor="#52ab7d"
             android:layout_width="wrap_content"
@@ -228,14 +220,14 @@ android:layout_height="match_parent"
 
         <CheckBox
             android:enabled="false"
-            android:text="Sexta"
+            android:text="@string/sexta"
             android:textColor="#52ab7d"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/cuidador_sexta" />
 
         <CheckBox
-            android:text="Sabado"
+            android:text="@string/sabado"
             android:enabled="false"
             android:textColor="#52ab7d"
             android:layout_width="wrap_content"
@@ -243,7 +235,7 @@ android:layout_height="match_parent"
             android:id="@+id/cuidador_sabado" />
 
         <CheckBox
-            android:text="Domingo"
+            android:text="@string/domingo"
             android:enabled="false"
             android:textColor="#52ab7d"
             android:layout_width="wrap_content"
@@ -253,7 +245,7 @@ android:layout_height="match_parent"
     </LinearLayout>
 
     <TextView
-        android:text="Periodo"
+        android:text="@string/periodo"
         android:textSize="20sp"
         android:enabled="false"
         android:layout_marginTop="20dp"
@@ -269,7 +261,7 @@ android:layout_height="match_parent"
 
         <CheckBox
             android:enabled="false"
-            android:text="Manhã"
+            android:text="@string/manha"
             android:textColor="#52ab7d"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -277,7 +269,7 @@ android:layout_height="match_parent"
 
         <CheckBox
             android:enabled="false"
-            android:text="Tarde"
+            android:text="@string/tarde"
             android:textColor="#52ab7d"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -285,7 +277,7 @@ android:layout_height="match_parent"
 
         <CheckBox
             android:enabled="false"
-            android:text="Noite"
+            android:text="@string/noite"
             android:textColor="#52ab7d"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -297,7 +289,7 @@ android:layout_height="match_parent"
         android:layout_marginTop="10dp"
         android:layout_gravity="center_horizontal"
         android:background="@drawable/fundobotao"
-        android:text="Voltar"
+        android:text="@string/voltar"
         android:id="@+id/cuidador_voltar"
         android:textColor="#52ab7d"
         android:layout_width="wrap_content"

@@ -1,6 +1,5 @@
 package br.com.softcare.cuidadores.activity;
 
-import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -8,11 +7,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ListView;
-import android.widget.SimpleAdapter;
-import android.widget.Toast;
-
-import java.util.List;
-import java.util.Map;
 
 import br.com.softcare.cuidadores.adapter.CuidadoresAdapter;
 import br.com.softcare.cuidadores.dto.Cuidador;

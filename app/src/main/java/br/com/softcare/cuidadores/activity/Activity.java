@@ -6,8 +6,6 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
-import br.com.softcare.cuidadores.exceptions.BusinessException;
-
 /**
  * Created by mario on 17/11/16.
  */

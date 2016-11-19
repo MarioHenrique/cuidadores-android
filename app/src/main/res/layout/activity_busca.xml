@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/busca_rua"
         android:textColorHint="#52ab7d"
-        android:hint="Rua" />
+        android:hint="@string/rua" />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -53,11 +53,11 @@
         android:layout_height="wrap_content"
         android:id="@+id/busca_contato"
         android:textColorHint="#52ab7d"
-        android:hint="Telefone" />
+        android:hint="@string/telefone" />
 
 
     <TextView
-        android:text="Disponobilidade"
+        android:text="@string/disponibilidade"
         android:textSize="20sp"
         android:layout_marginTop="10dp"
         android:layout_width="wrap_content"
@@ -71,28 +71,28 @@
         android:layout_height="wrap_content">
 
         <CheckBox
-            android:text="Segunda"
+            android:text="@string/segunda"
             android:textColor="#52ab7d"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/busca_segunda" />
 
         <CheckBox
-            android:text="Terça"
+            android:text="@string/terca"
             android:textColor="#52ab7d"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/busca_terca" />
 
         <CheckBox
-            android:text="Quarta"
+            android:text="@string/quarta"
             android:textColor="#52ab7d"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/busca_quarta"/>
 
         <CheckBox
-            android:text="Quinta"
+            android:text="@string/quinta"
             android:textColor="#52ab7d"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -105,21 +105,21 @@
         android:layout_height="wrap_content">
 
         <CheckBox
-            android:text="Sexta"
+            android:text="@string/sexta"
             android:textColor="#52ab7d"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/busca_sexta" />
 
         <CheckBox
-            android:text="Sabado"
+            android:text="@string/sabado"
             android:textColor="#52ab7d"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/busca_sabado" />
 
         <CheckBox
-            android:text="Domingo"
+            android:text="@string/domingo"
             android:textColor="#52ab7d"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -127,11 +127,8 @@
 
     </LinearLayout>
 
-
-
-
     <TextView
-        android:text="Periodo"
+        android:text="@string/periodo"
         android:textSize="20sp"
         android:layout_marginTop="10dp"
         android:layout_width="wrap_content"
@@ -145,21 +142,21 @@
         android:layout_height="wrap_content">
 
         <CheckBox
-            android:text="Manhã"
+            android:text="@string/manha"
             android:textColor="#52ab7d"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/busca_manha" />
 
         <CheckBox
-            android:text="Tarde"
+            android:text="@string/tarde"
             android:textColor="#52ab7d"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/busca_tarde" />
 
         <CheckBox
-            android:text="Noite"
+            android:text="@string/noite"
             android:textColor="#52ab7d"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

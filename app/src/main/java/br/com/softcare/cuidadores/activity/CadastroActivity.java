@@ -1,22 +1,15 @@
 package br.com.softcare.cuidadores.activity;
 
-import android.app.ProgressDialog;
-import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 import br.com.softcare.cuidadores.adapter.PerfilAdapter;
-import br.com.softcare.cuidadores.dto.UsuarioAlteracao;
-import br.com.softcare.cuidadores.enuns.Disponibilidade;
-import br.com.softcare.cuidadores.enuns.Perfil;
-import br.com.softcare.cuidadores.enuns.Periodo;
-import br.com.softcare.cuidadores.exceptions.BusinessException;
-import gp1.ihc.cuidadores.R;
 import br.com.softcare.cuidadores.client.WebServices;
+import br.com.softcare.cuidadores.dto.UsuarioAlteracao;
+import br.com.softcare.cuidadores.enuns.Perfil;
+import gp1.ihc.cuidadores.R;
 
 import static br.com.softcare.cuidadores.utils.Utils.getValorDaTextView;
 

@@ -20,7 +20,7 @@ import br.com.softcare.cuidadores.exceptions.BusinessException;
 import gp1.ihc.cuidadores.R;
 import br.com.softcare.cuidadores.client.WebServices;
 
-import static br.com.softcare.cuidadores.utils.Utils.getValorDaTextView;
+import static br.com.softcare.cuidadores.utils.Utils.*;
 
 public class BuscaActivity extends Activity {
 
@@ -69,43 +69,40 @@ public class BuscaActivity extends Activity {
     }
 
     private void setarPeriodo(BuscaDeCuidadoresDTO buscaDeCuidadoresDTO) {
-        if(isCheckBoxChecked(R.id.busca_manha)){
+        if(isCheckBoxChecked(this,R.id.busca_manha)){
             buscaDeCuidadoresDTO.adicionarPeriodo(Periodo.MANHA);
         }
-        if(isCheckBoxChecked(R.id.busca_tarde)){
+        if(isCheckBoxChecked(this,R.id.busca_tarde)){
             buscaDeCuidadoresDTO.adicionarPeriodo(Periodo.TARDE);
         }
-        if(isCheckBoxChecked(R.id.busca_noite)){
+        if(isCheckBoxChecked(this,R.id.busca_noite)){
             buscaDeCuidadoresDTO.adicionarPeriodo(Periodo.NOITE);
         }
     }
 
     private void setarDisponibilidate(BuscaDeCuidadoresDTO buscaDeCuidadoresDTO) {
-        if(isCheckBoxChecked(R.id.busca_segunda)){
+        if(isCheckBoxChecked(this,R.id.busca_segunda)){
             buscaDeCuidadoresDTO.adicionarDisponibilidade(Disponibilidade.SEGUNDA);
         }
-        if(isCheckBoxChecked(R.id.busca_terca)){
+        if(isCheckBoxChecked(this,R.id.busca_terca)){
             buscaDeCuidadoresDTO.adicionarDisponibilidade(Disponibilidade.TERCA);
         }
-        if(isCheckBoxChecked(R.id.busca_quarta)){
+        if(isCheckBoxChecked(this,R.id.busca_quarta)){
             buscaDeCuidadoresDTO.adicionarDisponibilidade(Disponibilidade.QUARTA);
         }
-        if(isCheckBoxChecked(R.id.busca_quinta)){
+        if(isCheckBoxChecked(this,R.id.busca_quinta)){
             buscaDeCuidadoresDTO.adicionarDisponibilidade(Disponibilidade.QUINTA);
         }
-        if(isCheckBoxChecked(R.id.busca_sexta)){
+        if(isCheckBoxChecked(this,R.id.busca_sexta)){
             buscaDeCuidadoresDTO.adicionarDisponibilidade(Disponibilidade.SEXTA);
         }
-        if(isCheckBoxChecked(R.id.busca_sabado)){
+        if(isCheckBoxChecked(this,R.id.busca_sabado)){
             buscaDeCuidadoresDTO.adicionarDisponibilidade(Disponibilidade.SABADO);
         }
-        if(isCheckBoxChecked(R.id.busca_domingo)){
+        if(isCheckBoxChecked(this,R.id.busca_domingo)){
             buscaDeCuidadoresDTO.adicionarDisponibilidade(Disponibilidade.DOMINGO);
         }
     }
 
-    private boolean isCheckBoxChecked(int resource){
-        return ((CheckBox)findViewById(resource)).isChecked();
-    }
 
 }

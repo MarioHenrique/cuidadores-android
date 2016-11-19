@@ -1,19 +1,15 @@
 package br.com.softcare.cuidadores.activity;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
-import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
-import android.widget.Toast;
 
+import br.com.softcare.cuidadores.client.WebServices;
 import br.com.softcare.cuidadores.dto.Usuario;
 import br.com.softcare.cuidadores.exceptions.BusinessException;
-import br.com.softcare.cuidadores.exceptions.ExceptionError;
 import gp1.ihc.cuidadores.R;
-import br.com.softcare.cuidadores.client.WebServices;
+
+import static br.com.softcare.cuidadores.utils.Utils.getValorDaTextView;
 
 public class LoginActivity extends Activity {
 
@@ -27,8 +23,8 @@ public class LoginActivity extends Activity {
 
     @Override
     protected void operation() throws BusinessException {
-        final String senha = ((EditText) findViewById(R.id.login_senha)).getText().toString();
-        final String email = ((EditText) findViewById(R.id.login_email)).getText().toString();
+        final String senha = getValorDaTextView(this,R.id.login_senha);
+        final String email = getValorDaTextView(this,R.id.login_email);
         usuarioLogado = WebServices.cuidadores.login(email, senha);
     }
 

@@ -1,7 +1,8 @@
 <resources>
     <string name="app_name">Cuidadores</string>
 
-    <!-- Strings related to login -->
+    <!-- Login -->
+    <string name="login_entrar">Entrar</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password (optional)</string>
     <string name="action_sign_in">Sign in or register</string>
@@ -13,6 +14,8 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+
+    <!-- Busca de cuidadores -->
     <string name="busca_zipcode">CEP</string>
     <string name="busca_bairro">Bairro</string>
     <string name="busca_cidade">Cidade</string>
@@ -23,7 +26,33 @@
     <string name="busca_disponibilidade">Disponibilidade</string>
     <string name="busca_periodo">Período</string>
     <string name="busca_botao">Buscar</string>
+    <string name="noite">Noite</string>
+    <string name="tarde">Tarde</string>
+    <string name="manha">Manhã</string>
+    <string name="periodo">Periodo</string>
+    <string name="domingo">Domingo</string>
+    <string name="sabado">Sabado</string>
+    <string name="sexta">Sexta</string>
+    <string name="quinta">Quinta</string>
+    <string name="quarta">Quarta</string>
+    <string name="terca">Terça</string>
+    <string name="segunda">Segunda</string>
+    <string name="disponibilidade">Disponibilidade</string>
+    <string name="telefone">Telefone</string>
+    <string name="rua">Rua</string>
+    <string name="voltar">Voltar</string>
 
+    <!-- Perfil cuidador -->
+    <string name="cuidador_nome">Nome:</string>
+    <string name="cuidador_email">Email:</string>
+    <string name="cuidador_contato">Telefone:</string>
+    <string name="cuidador_zipcode">CEP:</string>
+    <string name="cuidador_bairro">Bairro:</string>
+    <string name="cuidador_cidade">Cidade:</string>
+    <string name="cuidador_estado">Estado:</string>
+    <string name="cuidador_rua">Rua:</string>
+
+    <!-- Cadastro -->
     <string name="cadastro_zipcode">CEP</string>
     <string name="cadastro_bairro">Bairro</string>
     <string name="cadastro_cidade">Cidade</string>
@@ -37,28 +66,6 @@
     <string name="cadastro_senha">Senha</string>
     <string name="cadastro_perfil">Perfil</string>
     <string name="cadastro_botao">Crie sua conta</string>
-
-    <string-array name="disponibilidade">
-        <item>SEGUNDA</item>
-        <item>TERCA</item>
-        <item>QUARTA</item>
-        <item>QUINTA</item>
-        <item>SEXTA</item>
-        <item>SABADO</item>
-        <item>DOMINGO</item>
-    </string-array>
-
-    <string-array name="perfil">
-        <item>RESPONSAVEL</item>
-        <item>CUIDADOR</item>
-    </string-array>
-
-    <string-array name="periodo">
-        <item>MANHA</item>
-        <item>TARDE</item>
-        <item>NOITE</item>
-    </string-array>
-
-    <string name="login_entrar">Entrar</string>
     <string name="title_activity_usuario">UsuarioActivity</string>
+    <string name="perfil">Perfil</string>
 </resources>

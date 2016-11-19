@@ -1,30 +1,20 @@
 package br.com.softcare.cuidadores.activity;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
-import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import java.io.Serializable;
 import java.util.Set;
 import br.com.softcare.cuidadores.adapter.PerfilAdapter;
 import br.com.softcare.cuidadores.client.WebServices;
-import br.com.softcare.cuidadores.dto.BuscaDeCuidadoresDTO;
 import br.com.softcare.cuidadores.dto.Usuario;
 import br.com.softcare.cuidadores.dto.UsuarioAlteracao;
 import br.com.softcare.cuidadores.enuns.Disponibilidade;
 import br.com.softcare.cuidadores.enuns.Perfil;
 import br.com.softcare.cuidadores.enuns.Periodo;
-import br.com.softcare.cuidadores.exceptions.BusinessException;
-import static br.com.softcare.cuidadores.utils.Utils.getValorDaTextView;
+import static br.com.softcare.cuidadores.utils.Utils.*;
+
 
 import gp1.ihc.cuidadores.R;
 
@@ -40,12 +30,9 @@ public class UsuarioActivity extends Activity {
         setContentView(R.layout.activity_usuario);
         final Intent intent = getIntent();
         usuarioLogado = (Usuario) intent.getSerializableExtra("usuario");
-        EditText campoCep = (EditText) findViewById(R.id.usuario_cep);
-        campoCep.setText(usuarioLogado.getCep());
-        EditText campoNome = (EditText) findViewById(R.id.usuario_nome);
-        campoNome.setText(usuarioLogado.getNome());
-        EditText campoTelefone = (EditText) findViewById(R.id.usuario_telefone);
-        campoTelefone.setText(usuarioLogado.getContato());
+        setValorDaTextView(this,R.id.usuario_cep,usuarioLogado.getCep());
+        setValorDaTextView(this,R.id.usuario_nome,usuarioLogado.getNome());
+        setValorDaTextView(this,R.id.usuario_telefone,usuarioLogado.getContato());
         final Set<Disponibilidade> disponibilidade = usuarioLogado.getDisponibilidade();
         if(disponibilidade!=null && !disponibilidade.isEmpty()) {
             for (Disponibilidade disp : disponibilidade) {
@@ -90,6 +77,7 @@ public class UsuarioActivity extends Activity {
         usuarioLogado.setDisponibilidade(usuarioAlteracao.getDisponibilidade());
         usuarioLogado.setPerfil(usuarioAlteracao.getPerfil());
         usuarioLogado.setPeriodo(usuarioAlteracao.getPeriodo());
+        usuarioLogado.setCep(usuarioAlteracao.getCep());
         final Intent intent = new Intent();
         intent.putExtra("usuarioAlterado",usuarioLogado);
         setResult(RESULT_OK,intent);
@@ -97,44 +85,41 @@ public class UsuarioActivity extends Activity {
     }
 
     private void setPeriodoAlteracao(UsuarioAlteracao usuarioAlteracao) {
-        if(isCheckBoxChecked(R.id.usuario_manha)){
+        if(isCheckBoxChecked(this,R.id.usuario_manha)){
             usuarioAlteracao.adicionarPeriodo(Periodo.MANHA);
         }
-        if(isCheckBoxChecked(R.id.usuario_tarde)){
+        if(isCheckBoxChecked(this,R.id.usuario_tarde)){
             usuarioAlteracao.adicionarPeriodo(Periodo.TARDE);
         }
-        if(isCheckBoxChecked(R.id.usuario_noite)){
+        if(isCheckBoxChecked(this,R.id.usuario_noite)){
             usuarioAlteracao.adicionarPeriodo(Periodo.NOITE);
         }
     }
 
     private void setarDisponibilidateAlteracao(UsuarioAlteracao usuarioAlteracao) {
-        if(isCheckBoxChecked(R.id.usuario_segunda)){
+        if(isCheckBoxChecked(this,R.id.usuario_segunda)){
             usuarioAlteracao.adicionarDisponibilidade(Disponibilidade.SEGUNDA);
         }
-        if(isCheckBoxChecked(R.id.usuario_terca)){
+        if(isCheckBoxChecked(this,R.id.usuario_terca)){
             usuarioAlteracao.adicionarDisponibilidade(Disponibilidade.TERCA);
         }
-        if(isCheckBoxChecked(R.id.usuario_quarta)){
+        if(isCheckBoxChecked(this,R.id.usuario_quarta)){
             usuarioAlteracao.adicionarDisponibilidade(Disponibilidade.QUARTA);
         }
-        if(isCheckBoxChecked(R.id.usuario_quinta)){
+        if(isCheckBoxChecked(this,R.id.usuario_quinta)){
             usuarioAlteracao.adicionarDisponibilidade(Disponibilidade.QUINTA);
         }
-        if(isCheckBoxChecked(R.id.usuario_sexta)){
+        if(isCheckBoxChecked(this,R.id.usuario_sexta)){
             usuarioAlteracao.adicionarDisponibilidade(Disponibilidade.SEXTA);
         }
-        if(isCheckBoxChecked(R.id.usuario_sabado)){
+        if(isCheckBoxChecked(this,R.id.usuario_sabado)){
             usuarioAlteracao.adicionarDisponibilidade(Disponibilidade.SABADO);
         }
-        if(isCheckBoxChecked(R.id.usuario_domingo)){
+        if(isCheckBoxChecked(this,R.id.usuario_domingo)){
             usuarioAlteracao.adicionarDisponibilidade(Disponibilidade.DOMINGO);
         }
     }
 
-    private boolean isCheckBoxChecked(int resource){
-        return ((CheckBox)findViewById(resource)).isChecked();
-    }
 
     @Override
     protected void onResume() {
@@ -156,13 +141,13 @@ public class UsuarioActivity extends Activity {
     private void ativarCheckBoxPeriodo(Periodo per) {
         switch (per){
             case MANHA:
-                check(R.id.usuario_manha);
+                activiCheckBox(this,R.id.usuario_manha);
                 break;
             case TARDE:
-                check(R.id.usuario_tarde);
+                activiCheckBox(this,R.id.usuario_tarde);
                 break;
             case NOITE:
-                check(R.id.usuario_noite);
+                activiCheckBox(this,R.id.usuario_noite);
                 break;
         }
 
@@ -171,33 +156,28 @@ public class UsuarioActivity extends Activity {
     private void ativarCheckBoxDisponibilidade(Disponibilidade disp){
         switch (disp){
             case SEGUNDA:
-                check(R.id.usuario_segunda);
+                activiCheckBox(this,R.id.usuario_segunda);
                 break;
             case TERCA:
-                check(R.id.usuario_terca);
+                activiCheckBox(this,R.id.usuario_terca);
                 break;
             case QUARTA:
-                check(R.id.usuario_quarta);
+                activiCheckBox(this,R.id.usuario_quarta);
                 break;
             case QUINTA:
-                check(R.id.usuario_quinta);
+                activiCheckBox(this,R.id.usuario_quinta);
                 break;
             case SEXTA:
-                check(R.id.usuario_sexta);
+                activiCheckBox(this,R.id.usuario_sexta);
                 break;
             case SABADO:
-                check(R.id.usuario_sabado);
+                activiCheckBox(this,R.id.usuario_sabado);
                 break;
             case DOMINGO:
-                check(R.id.usuario_domingo);
+                activiCheckBox(this,R.id.usuario_domingo);
                 break;
         }
 
-    }
-
-    private void check(int resource){
-        CheckBox check = (CheckBox)findViewById(resource);
-        check.setChecked(true);
     }
 
 }
