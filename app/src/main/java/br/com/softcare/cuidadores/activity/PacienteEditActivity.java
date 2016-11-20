@@ -3,6 +3,7 @@ package br.com.softcare.cuidadores.activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
@@ -12,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -33,6 +35,7 @@ public class PacienteEditActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_paciente_edit);
         paciente = (PacienteDTO)getIntent().getSerializableExtra("paciente");
+        LinearLayout linear = (LinearLayout)findViewById(R.id.paciente_tratamento);
         if(paciente != null) {
             setValorDaTextView(this, R.id.paciente_nome, paciente.getNome());
             setValorDaTextView(this, R.id.paciente_idade, paciente.getDataNascimento());
@@ -43,8 +46,16 @@ public class PacienteEditActivity extends Activity {
             button.setText("Criar");
             Button buttonDeletar = (Button)findViewById(R.id.paciente_button_deletar);
             buttonDeletar.setVisibility(View.GONE);
+            linear.setVisibility(View.GONE);
         }
     }
+
+    public void adicionarTratamentos(View view){
+        final Intent intent = new Intent(this, TratamentoActivity.class);
+        intent.putExtra("paciente",paciente);
+        startActivity(intent);
+    }
+
 
     public void salvarPaciente(View view){
         doInBackground(this);

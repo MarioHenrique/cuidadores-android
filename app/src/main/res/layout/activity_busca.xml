@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="br.com.softcare.cuidadores.activity.BuscaActivity"
@@ -12,49 +11,89 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <EditText
+    <ImageView
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/cuidadores"
+        android:layout_width="100dp"
+        android:layout_height="100dp" />
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/busca_zipcode"
-        android:textColorHint="#52ab7d"
-        android:hint="@string/busca_zipcode" />
-    <EditText
+        android:orientation="horizontal"
+        android:weightSum="2"
+        >
+        <EditText
+            android:layout_weight="1"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/busca_zipcode"
+            android:textColorHint="#52ab7d"
+            android:hint="@string/busca_zipcode" />
+        <EditText
+            android:layout_weight="1"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/busca_rua"
+            android:textColorHint="#52ab7d"
+            android:hint="@string/rua" />
+    </LinearLayout>
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/busca_rua"
-        android:textColorHint="#52ab7d"
-        android:hint="@string/rua" />
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2">
+        <EditText
+            android:layout_weight="1"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
         android:id="@+id/busca_bairro"
         android:textColorHint="#52ab7d"
         android:hint="@string/busca_bairro" />
     <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
         android:id="@+id/busca_cidade"
         android:textColorHint="#52ab7d"
         android:hint="@string/busca_cidade" />
-    <EditText
-        android:layout_width="match_parent"
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        >
+    <EditText
+        android:layout_weight="1"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
         android:id="@+id/busca_estado"
         android:textColorHint="#52ab7d"
         android:hint="@string/busca_estado" />
+
     <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
         android:id="@+id/busca_email"
         android:textColorHint="#52ab7d"
         android:hint="@string/busca_email" />
-    <EditText
+    </LinearLayout>
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2">
+        <EditText
+        android:layout_weight="1"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
         android:id="@+id/busca_contato"
         android:textColorHint="#52ab7d"
         android:hint="@string/telefone" />
-
+    </LinearLayout>
 
     <TextView
         android:text="@string/disponibilidade"

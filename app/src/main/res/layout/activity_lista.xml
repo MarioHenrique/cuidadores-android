@@ -4,12 +4,29 @@ android:orientation="vertical"
 android:layout_width="match_parent"
 android:layout_height="match_parent">
 
+    <LinearLayout
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/cuidadores"
+            android:layout_width="100dp"
+            android:layout_height="100dp" />
+
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/lista_cuidadores"
         >
     </ListView>
+
+    </LinearLayout>
+
 
     <ImageButton
         android:src="@drawable/pesquisar"

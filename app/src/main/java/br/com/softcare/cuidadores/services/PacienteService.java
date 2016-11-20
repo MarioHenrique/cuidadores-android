@@ -18,7 +18,6 @@ public class PacienteService {
         return restExecuter.getList(token, API_URLS.API_PATIENT,PacienteDTO.class);
     }
 
-
     public void atualizar(PacienteDTO paciente, String token) throws BusinessException {
         restExecuter.put(token,API_URLS.API_PATIENT_ID,paciente,PacienteDTO.class,paciente.getId());
     }
