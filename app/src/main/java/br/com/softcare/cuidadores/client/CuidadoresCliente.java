@@ -100,18 +100,52 @@ public final class CuidadoresCliente {
 		return cuidadoreService.atualizarEspecialidade(especialidadeDTO,token);
 	}
 
+	/**
+	 * Remove uma especialidade de um cuidador
+	 * @param especialidadeDTO
+	 * @throws BusinessException
+     */
 	public void removeEspecialidade(EspecialidadeDTO especialidadeDTO) throws BusinessException {
 		 cuidadoreService.removerEspecialidade(especialidadeDTO,token);
 	}
 
+	/**
+	 *  Lista as especialidades de um cuidador
+	 * @return
+	 * @throws BusinessException
+     */
 	public List<EspecialidadeDTO> listarEspecialidades() throws BusinessException {
 		validarToken();
 		return cuidadoreService.listarEspecialidades(token);
 	}
 
 
+	/**
+	 * Lista os pacientes do usuario logado
+	 * @return
+	 * @throws BusinessException
+     */
 	public List<PacienteDTO> listaDePacientes() throws BusinessException {
 		validarToken();
 		return pacienteService.listaDePacientes(token);
+	}
+
+	/**
+	 * Atualiza os dados de um paciente
+	 * @param paciente
+     */
+	public void atualizarPaciente(PacienteDTO paciente) throws BusinessException {
+		validarToken();
+		pacienteService.atualizar(paciente,token);
+	}
+
+	public void criarPaciente(PacienteDTO paciente) throws BusinessException {
+		validarToken();
+		pacienteService.criar(paciente,token);
+	}
+
+	public void deletarPaciente(PacienteDTO paciente) throws BusinessException {
+		validarToken();
+		pacienteService.deletar(paciente,token);
 	}
 }

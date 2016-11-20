@@ -8,11 +8,21 @@
 
     <ListView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/lista_pacientes"
         >
 
     </ListView>
 
+        <ImageButton
+            android:src="@drawable/novo"
+            android:background="@drawable/fundobotao"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:scaleType="fitXY"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:onClick="novoPaciente"
+            />
 
 </RelativeLayout>

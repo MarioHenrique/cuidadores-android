@@ -45,7 +45,8 @@
             android:name="br.com.softcare.cuidadores.activity.UsuarioActivity"
             android:label="Usuario" />
         <activity android:name="br.com.softcare.cuidadores.activity.CuidadorActivity" />
-        <activity android:name="br.com.softcare.cuidadores.activity.PacienteActivity"></activity>
+        <activity android:name="br.com.softcare.cuidadores.activity.PacienteActivity" />
+        <activity android:name="br.com.softcare.cuidadores.activity.PacienteEditActivity"></activity>
     </application>
 
 </manifest>

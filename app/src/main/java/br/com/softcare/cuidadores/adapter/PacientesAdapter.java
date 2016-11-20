@@ -1,6 +1,7 @@
 package br.com.softcare.cuidadores.adapter;
 
 import android.content.Context;
+import android.icu.util.DateInterval;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +9,9 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import br.com.softcare.cuidadores.dto.PacienteDTO;
@@ -52,14 +56,14 @@ public class PacientesAdapter extends BaseAdapter {
             view = inflater.inflate(R.layout.item_paciente, parent, false);
         }
 
+        ImageView imageView = (ImageView)view.findViewById(R.id.paciente_perfil_img);
+        imageView.setImageResource(R.drawable.user);
+
         TextView pacienteNome = (TextView)view.findViewById(R.id.paciente_perfil_nome);
         pacienteNome.setText(paciente.getNome());
 
-        TextView pacienteTelefone = (TextView)view.findViewById(R.id.paciente_perfil_telefone);
-        pacienteTelefone.setText(paciente.getContato());
-
-        ImageView imageView = (ImageView)view.findViewById(R.id.paciente_perfil_img);
-        imageView.setImageResource(R.drawable.user);
+        TextView pacienteIdade= (TextView)view.findViewById(R.id.paciente_perfil_idade);
+        pacienteIdade.setText(paciente.getIdadeCalculada()+" anos");
 
         return view;
     }

@@ -3,12 +3,17 @@ package br.com.softcare.cuidadores.dto;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.io.Serializable;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  * Created by mario on 19/11/16.
  */
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class PacienteDTO {
+public class PacienteDTO implements Serializable{
 
     @JsonProperty("id")
     private Long id;
@@ -63,5 +68,27 @@ public class PacienteDTO {
 
     public void setEstadoDeSaude(String estadoDeSaude) {
         this.estadoDeSaude = estadoDeSaude;
+    }
+
+    public Integer getIdadeCalculada(){
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        try {
+            final Date dataNasc = sdf.parse(dataNascimento);
+            final Date hoje = new Date();
+            Date diff = new Date(hoje.getTime()-dataNasc.getTime());
+            return (diff.getYear()-70);
+        } catch (ParseException e) {
+            return 0;
+        }
+    }
+
+    public Date getDate(){
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        try {
+            final Date dataNasc = sdf.parse(dataNascimento);
+            return dataNasc;
+        } catch (ParseException e) {
+            return null;
+        }
     }
 }

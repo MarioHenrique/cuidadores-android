@@ -19,4 +19,15 @@ public class PacienteService {
     }
 
 
+    public void atualizar(PacienteDTO paciente, String token) throws BusinessException {
+        restExecuter.put(token,API_URLS.API_PATIENT_ID,paciente,PacienteDTO.class,paciente.getId());
+    }
+
+    public void criar(PacienteDTO paciente, String token) throws BusinessException {
+        restExecuter.post(token,API_URLS.API_PATIENT,paciente,PacienteDTO.class);
+    }
+
+    public void deletar(PacienteDTO paciente, String token) throws BusinessException {
+        restExecuter.delete(token,API_URLS.API_PATIENT_ID,paciente.getId());
+    }
 }
