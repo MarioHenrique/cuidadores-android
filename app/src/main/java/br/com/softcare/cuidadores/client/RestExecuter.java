@@ -33,10 +33,10 @@ public final class RestExecuter {
 		restTemplate = new RestTemplate();
 	}
 
-	public void delete(String token,API_URLS apiUser,Long id) throws BusinessException {
+	public void delete(String token,API_URLS apiUser,Object ... params) throws BusinessException {
 		final HttpHeaders headers = getHeaders(token);
 		final HttpEntity<String> httpEntity = new HttpEntity<>(headers);
-		execute(apiUser.getUrl(),HttpMethod.DELETE,httpEntity,String.class,id);
+		execute(apiUser.getUrl(),HttpMethod.DELETE,httpEntity,String.class,params);
 	}
 
 	public <T> T post(String token,API_URLS apiUser, Object body, Class<T> responseClass, Object... uri) throws BusinessException {
@@ -100,11 +100,11 @@ public final class RestExecuter {
 		}
 	}
 
-	public <T> List<T> getList(String token, API_URLS apiUrls, Class<T> responseClass) throws BusinessException {
+	public <T> List<T> getList(String token, API_URLS apiUrls, Class<T> responseClass,Object ... param) throws BusinessException {
 		final HttpHeaders headers = getHeaders(token);
 		final HttpEntity<String> entity = new HttpEntity<>(headers);
 		try{
-			final ResponseEntity<String> result = restTemplate.exchange(apiUrls.getUrl(), HttpMethod.GET, entity,String.class);
+			final ResponseEntity<String> result = restTemplate.exchange(apiUrls.getUrl(), HttpMethod.GET, entity,String.class,param);
 			final List<LinkedHashMap> resultListMap = objectMapper.readValue(result.getBody(), new TypeReference<List<T>>() {
 			});
 			return convertToList(resultListMap,responseClass);

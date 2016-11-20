@@ -10,8 +10,12 @@ import android.widget.Button;
 import android.widget.GridView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import br.com.softcare.cuidadores.adapter.ImageButtonAdapter;
 import br.com.softcare.cuidadores.dto.Usuario;
+import br.com.softcare.cuidadores.enuns.Perfil;
 import gp1.ihc.cuidadores.R;
 
 public class MenuActivity extends AppCompatActivity {
@@ -33,9 +37,28 @@ public class MenuActivity extends AppCompatActivity {
 
             }
         });
+    }
 
+    @NonNull
+    private Button getButton() {
+        Button button = (Button)findViewById(R.id.menu_usuario);
+        return button;
+    }
+
+    private void setarInfo(Button button){
+        button.setText(usuarioLogado.getNome()+"\n\n"+usuarioLogado.getEmail());
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         GridView gridView = (GridView)findViewById(R.id.gridview);
-        gridView.setAdapter(new ImageButtonAdapter(this));
+        List<ImageButtonAdapter.Item> mItems = new ArrayList<>();
+        if(usuarioLogado.getPerfil().contains(Perfil.RESPONSAVEL)) {
+            mItems.add(new ImageButtonAdapter.Item(R.drawable.cuidadores));
+            mItems.add(new ImageButtonAdapter.Item(R.drawable.pacientes));
+        }
+        gridView.setAdapter(new ImageButtonAdapter(this,mItems));
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -59,21 +82,6 @@ public class MenuActivity extends AppCompatActivity {
 
             }
         });
-    }
-
-    @NonNull
-    private Button getButton() {
-        Button button = (Button)findViewById(R.id.menu_usuario);
-        return button;
-    }
-
-    private void setarInfo(Button button){
-        button.setText(usuarioLogado.getNome()+"\n\n"+usuarioLogado.getEmail());
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
         setarInfo(getButton());
     }
 

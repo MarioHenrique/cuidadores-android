@@ -9,11 +9,13 @@ import br.com.softcare.cuidadores.dto.BuscaDeCuidadoresDTO;
 import br.com.softcare.cuidadores.dto.EspecialidadeDTO;
 import br.com.softcare.cuidadores.dto.ListaDeCuidadores;
 import br.com.softcare.cuidadores.dto.PacienteDTO;
+import br.com.softcare.cuidadores.dto.TratamentoDTO;
 import br.com.softcare.cuidadores.dto.Usuario;
 import br.com.softcare.cuidadores.dto.UsuarioAlteracao;
 import br.com.softcare.cuidadores.exceptions.BusinessException;
 import br.com.softcare.cuidadores.services.CuidadorService;
 import br.com.softcare.cuidadores.services.PacienteService;
+import br.com.softcare.cuidadores.services.TratamentoService;
 import br.com.softcare.cuidadores.services.usuarioService;
 
 public final class CuidadoresCliente {
@@ -21,6 +23,7 @@ public final class CuidadoresCliente {
 	private usuarioService userService = new usuarioService();
 	private CuidadorService cuidadoreService = new CuidadorService();
 	private PacienteService pacienteService = new PacienteService();
+	private TratamentoService tratamentoService = new TratamentoService();
 	private ProgressDialog p;
 	private String token = null;
 	
@@ -147,5 +150,25 @@ public final class CuidadoresCliente {
 	public void deletarPaciente(PacienteDTO paciente) throws BusinessException {
 		validarToken();
 		pacienteService.deletar(paciente,token);
+	}
+
+	public List<TratamentoDTO> listaTratamentos(Long id) throws BusinessException {
+		validarToken();
+		return tratamentoService.listaTratamentos(token,id);
+	}
+
+	public void deletarTratamento(Long pacienteId, Long tratamentoId) throws BusinessException {
+		validarToken();
+		tratamentoService.deletar(token,pacienteId,tratamentoId);
+	}
+
+	public TratamentoDTO atualizarTratamento(TratamentoDTO tratamentoDTO, Long pacienteId, Long tratamentoId) throws BusinessException {
+		validarToken();
+		return tratamentoService.atualizar(token,tratamentoDTO,pacienteId,tratamentoId);
+	}
+
+	public TratamentoDTO criarTratamento(TratamentoDTO tratamentoDTO, Long id) throws BusinessException {
+		validarToken();
+		return tratamentoService.criar(token,tratamentoDTO,id);
 	}
 }

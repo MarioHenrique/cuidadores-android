@@ -11,6 +11,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.com.softcare.cuidadores.activity.MenuActivity;
 import gp1.ihc.cuidadores.R;
 
 /**
@@ -19,14 +20,12 @@ import gp1.ihc.cuidadores.R;
 
 public class ImageButtonAdapter extends BaseAdapter{
 
-    private final List<Item> mItems = new ArrayList<Item>();
+    private List<Item> mItems = new ArrayList<Item>();
     private final LayoutInflater mInflater;
 
-    public ImageButtonAdapter(Context context) {
+    public ImageButtonAdapter(Context context,List<Item> mItems) {
         mInflater = LayoutInflater.from(context);
-        mItems.add(new Item(R.drawable.cuidadores));
-//        mItems.add(new Item(R.drawable.calendrio));
-        mItems.add(new Item(R.drawable.pacientes));
+        this.mItems = mItems;
     }
 
     @Override
@@ -65,10 +64,10 @@ public class ImageButtonAdapter extends BaseAdapter{
         return v;
     }
 
-    private static class Item {
+    public static class Item {
         public final int drawableId;
 
-        Item( int drawableId) {
+        public Item(int drawableId) {
             this.drawableId = drawableId;
         }
     }
