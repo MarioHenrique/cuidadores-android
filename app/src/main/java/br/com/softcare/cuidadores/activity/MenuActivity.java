@@ -45,7 +45,8 @@ public class MenuActivity extends AppCompatActivity {
                         Toast.makeText(MenuActivity.this,"Calendario",Toast.LENGTH_SHORT).show();
                         break;
                     case R.drawable.pacientes:
-                        Toast.makeText(MenuActivity.this,"Pacientes",Toast.LENGTH_SHORT).show();
+                        final Intent intentPaciente = new Intent(MenuActivity.this, PacienteActivity.class);
+                        startActivity(intentPaciente);
                         break;
                     case R.drawable.cuidadores:
                         final Intent intentBusca = new Intent(MenuActivity.this, BuscaActivity.class);

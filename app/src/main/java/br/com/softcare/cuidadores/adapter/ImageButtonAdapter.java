@@ -26,8 +26,7 @@ public class ImageButtonAdapter extends BaseAdapter{
         mInflater = LayoutInflater.from(context);
         mItems.add(new Item(R.drawable.cuidadores));
 //        mItems.add(new Item(R.drawable.calendrio));
-//        mItems.add(new Item(R.drawable.pacientes));
-//        mItems.add(new Item(R.drawable.config));
+        mItems.add(new Item(R.drawable.pacientes));
     }
 
     @Override

@@ -8,16 +8,19 @@ import java.util.List;
 import br.com.softcare.cuidadores.dto.BuscaDeCuidadoresDTO;
 import br.com.softcare.cuidadores.dto.EspecialidadeDTO;
 import br.com.softcare.cuidadores.dto.ListaDeCuidadores;
+import br.com.softcare.cuidadores.dto.PacienteDTO;
 import br.com.softcare.cuidadores.dto.Usuario;
 import br.com.softcare.cuidadores.dto.UsuarioAlteracao;
 import br.com.softcare.cuidadores.exceptions.BusinessException;
 import br.com.softcare.cuidadores.services.CuidadorService;
+import br.com.softcare.cuidadores.services.PacienteService;
 import br.com.softcare.cuidadores.services.usuarioService;
 
 public final class CuidadoresCliente {
 
 	private usuarioService userService = new usuarioService();
 	private CuidadorService cuidadoreService = new CuidadorService();
+	private PacienteService pacienteService = new PacienteService();
 	private ProgressDialog p;
 	private String token = null;
 	
@@ -57,12 +60,16 @@ public final class CuidadoresCliente {
 	 * @throws BusinessException
 	 */
 	public Usuario atualizarUsuario(UsuarioAlteracao usuario) throws BusinessException{
+		validarToken();
+		return userService.atualizar(usuario,token);
+	}
+
+	private void validarToken() throws BusinessException {
 		if(token == null ){
 			throw new BusinessException("Usuario não logado");
 		}
-		return userService.atualizar(usuario,token);
 	}
-	
+
 	/**
 	 * Busca de cuidadores
 	 * @param buscaDeCuidadoresDTO
@@ -78,6 +85,7 @@ public final class CuidadoresCliente {
 	 * @return Especialidade criada com seu id
      */
 	public EspecialidadeDTO cadastroDeEspecialidade(EspecialidadeDTO especialidadeDTO) throws BusinessException {
+		validarToken();
 		return cuidadoreService.criacaoDeEspecialidade(especialidadeDTO,token);
 	}
 
@@ -88,6 +96,7 @@ public final class CuidadoresCliente {
 	 * @throws BusinessException
      */
 	public EspecialidadeDTO atualizarEspecialidade(EspecialidadeDTO especialidadeDTO) throws BusinessException {
+		validarToken();
 		return cuidadoreService.atualizarEspecialidade(especialidadeDTO,token);
 	}
 
@@ -96,6 +105,13 @@ public final class CuidadoresCliente {
 	}
 
 	public List<EspecialidadeDTO> listarEspecialidades() throws BusinessException {
+		validarToken();
 		return cuidadoreService.listarEspecialidades(token);
+	}
+
+
+	public List<PacienteDTO> listaDePacientes() throws BusinessException {
+		validarToken();
+		return pacienteService.listaDePacientes(token);
 	}
 }

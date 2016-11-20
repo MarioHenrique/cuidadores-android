@@ -1,6 +1,10 @@
 package br.com.softcare.cuidadores.client;
 
-import org.springframework.core.ParameterizedTypeReference;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -9,10 +13,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.HttpStatusCodeException;
 import org.springframework.web.client.RestTemplate;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
+import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Set;
 
 import br.com.softcare.cuidadores.enuns.API_URLS;
 import br.com.softcare.cuidadores.exceptions.BusinessException;
@@ -98,10 +103,11 @@ public final class RestExecuter {
 	public <T> List<T> getList(String token, API_URLS apiUrls, Class<T> responseClass) throws BusinessException {
 		final HttpHeaders headers = getHeaders(token);
 		final HttpEntity<String> entity = new HttpEntity<>(headers);
-		ParameterizedTypeReference<List<T>> responseListType = new ParameterizedTypeReference<List<T>>() {};
 		try{
-			final ResponseEntity<List<T>> result = restTemplate.exchange(apiUrls.getUrl(), HttpMethod.GET, entity, responseListType);
-			return result.getBody();
+			final ResponseEntity<String> result = restTemplate.exchange(apiUrls.getUrl(), HttpMethod.GET, entity,String.class);
+			final List<LinkedHashMap> resultListMap = objectMapper.readValue(result.getBody(), new TypeReference<List<T>>() {
+			});
+			return convertToList(resultListMap,responseClass);
 		} catch (HttpStatusCodeException e) {
 			String responseBodyAsString = e.getResponseBodyAsString();
 			String message = null;
@@ -115,6 +121,32 @@ public final class RestExecuter {
 		} catch (Exception e) {
 			throw new BusinessException(e.getMessage());
 		}
+	}
+
+	private <T> List<T> convertToList(List<LinkedHashMap> resultListMap, Class<T> responseClass) throws IllegalAccessException, InstantiationException {
+		List<T> resultList = new ArrayList<>();
+		for(LinkedHashMap item:resultListMap){
+			final T t = responseClass.newInstance();
+			final Field[] fields = responseClass.getDeclaredFields();
+			for(int i = 0; i<fields.length;i++){
+				fields[i].setAccessible(true);
+				final JsonProperty annotation = fields[i].getAnnotation(JsonProperty.class);
+				String nomeCampo = fields[i].getName();
+				if(annotation!=null){
+					nomeCampo = annotation.value();
+				}
+				if(!item.containsKey(nomeCampo))
+					continue;
+				String className =  fields[i].getType().getSimpleName();
+				if(className.equals("Long")){
+					fields[i].set(t,((Integer)item.get(nomeCampo)).longValue());
+				}else {
+					fields[i].set(t, item.get(nomeCampo));
+				}
+			}
+			resultList.add(t);
+		}
+		return resultList;
 	}
 
 	public <T> T get(String token,API_URLS apiUrl,Class<T> responseClass, Object... uri) throws BusinessException {

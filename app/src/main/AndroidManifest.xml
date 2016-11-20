@@ -27,6 +27,7 @@
             android:label="Cuidadores">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -44,6 +45,7 @@
             android:name="br.com.softcare.cuidadores.activity.UsuarioActivity"
             android:label="Usuario" />
         <activity android:name="br.com.softcare.cuidadores.activity.CuidadorActivity" />
+        <activity android:name="br.com.softcare.cuidadores.activity.PacienteActivity"></activity>
     </application>
 
 </manifest>

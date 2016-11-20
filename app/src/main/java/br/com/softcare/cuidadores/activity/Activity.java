@@ -30,8 +30,8 @@ public abstract class Activity extends AppCompatActivity{
                     uiThread.post(new Runnable() {
                         @Override
                         public void run() {
-                            progress.dismiss();
                             onSuccess();
+                            progress.dismiss();
                         }
                     });
                 }catch(final Exception e){
