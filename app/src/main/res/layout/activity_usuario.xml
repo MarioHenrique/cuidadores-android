@@ -88,7 +88,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/usuario_perfil"
-        android:spinnerMode="dialog"/>
+        android:spinnerMode="dialog"
+        />
 
     <TextView
         android:text="Disponobilidade"
@@ -97,12 +98,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#52ab7d"
+        android:visibility="invisible"
+        android:id="@+id/usuario_label_disponibilidade"
         />
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:id="@+id/usuario_layout_disp_1">
 
         <CheckBox
             android:text="Segunda"
@@ -136,7 +141,9 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:id="@+id/usuario_layout_disp_2">
 
         <CheckBox
             android:text="Sexta"
@@ -168,12 +175,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#52ab7d"
+        android:visibility="invisible"
+        android:id="@+id/usuario_label_periodo"
         />
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:id="@+id/usuario_layout_periodo">
 
         <CheckBox
             android:text="Manhã"
