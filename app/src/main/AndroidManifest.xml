@@ -24,6 +24,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name="br.com.softcare.cuidadores.activity.LoginActivity"
+            android:windowSoftInputMode="stateHidden"
             android:label="Cuidadores">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -33,22 +34,32 @@
         </activity>
         <activity
             android:name="br.com.softcare.cuidadores.activity.BuscaActivity"
+            android:windowSoftInputMode="stateHidden"
             android:label="Buscar Cuidadores" />
         <activity
             android:name="br.com.softcare.cuidadores.activity.ListaActivity"
+            android:windowSoftInputMode="stateHidden"
             android:label="Cuidadores" />
         <activity
             android:name="br.com.softcare.cuidadores.activity.CadastroActivity"
+            android:windowSoftInputMode="stateHidden"
             android:label="Cadastrar" />
-        <activity android:name="br.com.softcare.cuidadores.activity.MenuActivity" />
+        <activity android:name="br.com.softcare.cuidadores.activity.MenuActivity"
+            android:windowSoftInputMode="stateHidden"/>
         <activity
             android:name="br.com.softcare.cuidadores.activity.UsuarioActivity"
+            android:windowSoftInputMode="stateHidden"
             android:label="Usuario" />
-        <activity android:name="br.com.softcare.cuidadores.activity.CuidadorActivity" />
-        <activity android:name="br.com.softcare.cuidadores.activity.PacienteActivity" />
-        <activity android:name="br.com.softcare.cuidadores.activity.PacienteEditActivity" />
-        <activity android:name="br.com.softcare.cuidadores.activity.TratamentoActivity" />
-        <activity android:name="br.com.softcare.cuidadores.activity.TratamentoEditActivity"></activity>
+        <activity android:name="br.com.softcare.cuidadores.activity.CuidadorActivity"
+            android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="br.com.softcare.cuidadores.activity.PacienteActivity"
+            android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="br.com.softcare.cuidadores.activity.PacienteEditActivity"
+            android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="br.com.softcare.cuidadores.activity.TratamentoActivity"
+            android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="br.com.softcare.cuidadores.activity.TratamentoEditActivity"
+            android:windowSoftInputMode="stateHidden"></activity>
     </application>
 
 </manifest>
