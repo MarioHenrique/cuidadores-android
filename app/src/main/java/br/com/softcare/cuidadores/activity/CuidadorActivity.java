@@ -1,5 +1,6 @@
 package br.com.softcare.cuidadores.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -17,6 +18,8 @@ import static br.com.softcare.cuidadores.utils.Utils.setValorDaTextView;
 
 public class CuidadorActivity extends AppCompatActivity {
 
+    private Cuidador cuidador;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,7 +32,7 @@ public class CuidadorActivity extends AppCompatActivity {
             }
         });
 
-        final Cuidador cuidador = (Cuidador)getIntent().getSerializableExtra("cuidador");
+        cuidador = (Cuidador)getIntent().getSerializableExtra("cuidador");
         setValorDaTextView(CuidadorActivity.this,R.id.cuidador_cep,cuidador.getCep());
         setValorDaTextView(CuidadorActivity.this,R.id.cuidador_nome,cuidador.getNome());
         setValorDaTextView(CuidadorActivity.this,R.id.cuidador_telefone,cuidador.getContato());
@@ -51,6 +54,12 @@ public class CuidadorActivity extends AppCompatActivity {
                 ativarCheckBoxPeriodo(per);
             }
         }
+    }
+
+    public void novoContrato(View view){
+        Intent novoContrato = new Intent(CuidadorActivity.this,NovoContratoActivity.class);
+        novoContrato.putExtra("cuidador",cuidador);
+        startActivity(novoContrato);
     }
 
 

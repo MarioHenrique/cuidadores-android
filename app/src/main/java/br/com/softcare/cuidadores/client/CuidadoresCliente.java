@@ -3,18 +3,22 @@ package br.com.softcare.cuidadores.client;
 import android.app.ProgressDialog;
 
 import java.util.Collections;
+import java.util.LinkedHashMap;
 import java.util.List;
 
 import br.com.softcare.cuidadores.dto.BuscaDeCuidadoresDTO;
 import br.com.softcare.cuidadores.dto.EspecialidadeDTO;
 import br.com.softcare.cuidadores.dto.ListaDeCuidadores;
 import br.com.softcare.cuidadores.dto.PacienteDTO;
+import br.com.softcare.cuidadores.dto.PropostaDTO;
+import br.com.softcare.cuidadores.dto.PropostaResponseDTO;
 import br.com.softcare.cuidadores.dto.TratamentoDTO;
 import br.com.softcare.cuidadores.dto.Usuario;
 import br.com.softcare.cuidadores.dto.UsuarioAlteracao;
 import br.com.softcare.cuidadores.exceptions.BusinessException;
 import br.com.softcare.cuidadores.services.CuidadorService;
 import br.com.softcare.cuidadores.services.PacienteService;
+import br.com.softcare.cuidadores.services.PropostaService;
 import br.com.softcare.cuidadores.services.TratamentoService;
 import br.com.softcare.cuidadores.services.usuarioService;
 
@@ -24,6 +28,8 @@ public final class CuidadoresCliente {
 	private CuidadorService cuidadoreService = new CuidadorService();
 	private PacienteService pacienteService = new PacienteService();
 	private TratamentoService tratamentoService = new TratamentoService();
+	private PropostaService propostaService = new PropostaService();
+
 	private ProgressDialog p;
 	private String token = null;
 	
@@ -170,5 +176,15 @@ public final class CuidadoresCliente {
 	public TratamentoDTO criarTratamento(TratamentoDTO tratamentoDTO, Long id) throws BusinessException {
 		validarToken();
 		return tratamentoService.criar(token,tratamentoDTO,id);
+	}
+
+	public void adicionarProposta(PropostaDTO proposta) throws BusinessException {
+		validarToken();
+		propostaService.adicionarProposta(proposta,token);
+	}
+
+	public List<LinkedHashMap> listaDeContratos() throws BusinessException {
+		validarToken();
+		return propostaService.listaDePropostas(token);
 	}
 }

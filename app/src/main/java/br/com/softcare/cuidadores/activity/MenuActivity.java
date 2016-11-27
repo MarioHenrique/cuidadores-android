@@ -57,6 +57,7 @@ public class MenuActivity extends AppCompatActivity {
         if(usuarioLogado.getPerfil().contains(Perfil.RESPONSAVEL)) {
             mItems.add(new ImageButtonAdapter.Item(R.drawable.cuidadores));
             mItems.add(new ImageButtonAdapter.Item(R.drawable.pacientes));
+            mItems.add(new ImageButtonAdapter.Item(R.drawable.contratoitemdesc));
         }
         gridView.setAdapter(new ImageButtonAdapter(this,mItems));
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -75,8 +76,9 @@ public class MenuActivity extends AppCompatActivity {
                         final Intent intentBusca = new Intent(MenuActivity.this, BuscaActivity.class);
                         startActivity(intentBusca);
                         break;
-                    case R.drawable.config:
-                        Toast.makeText(MenuActivity.this,"Configurações",Toast.LENGTH_SHORT).show();
+                    case R.drawable.contratoitemdesc:
+                        final Intent contratos = new Intent(MenuActivity.this, ContratoActivity.class);
+                        startActivity(contratos);
                         break;
                 }
 

@@ -10,11 +10,24 @@ public enum Periodo {
 	private Periodo(String periodo){
 		this.periodo = periodo;
 	}
-	
+
+	public String getPeriodo() {
+		return periodo;
+	}
+
 	@Override
 	@JsonValue
 	public String toString() {
 		return periodo;
 	}
-	
+
+	public static Periodo getByName(String name){
+		for(Periodo periodo: values()){
+			if(periodo.getPeriodo().equals(name)){
+				return periodo;
+			}
+		}
+		return null;
+	}
+
 }

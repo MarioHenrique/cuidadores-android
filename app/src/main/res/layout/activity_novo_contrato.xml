@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_cadastro"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="br.com.softcare.cuidadores.activity.NovoContratoActivity"
+    >
+<LinearLayout
+    android:id="@+id/activity_novo_contrato"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/contratoitemdesc"
+        android:layout_width="100dp"
+        android:layout_height="100dp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:text="Data inicio"
+            android:textColor="#52ab7d"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:text="XX/XX/XXXX"
+            android:id="@+id/contrato_data_inicio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:enabled="false"/>
+        <ImageButton
+            android:src="@drawable/date"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="5dp"
+            android:scaleType="fitXY"
+            android:onClick="entrataDataInicial"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:text="Data final"
+            android:textColor="#52ab7d"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:text="XX/XX/XXXX"
+            android:id="@+id/contrato_data_final"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:enabled="false"/>
+        <ImageButton
+            android:src="@drawable/date"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="5dp"
+            android:scaleType="fitXY"
+            android:onClick="entradaDataFinal"
+            />
+
+    </LinearLayout>
+
+
+    <TextView
+        android:text="@string/disponibilidade"
+        android:textSize="20sp"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#52ab7d"
+        />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <CheckBox
+            android:text="@string/segunda"
+            android:textColor="#52ab7d"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/contrato_segunda" />
+
+        <CheckBox
+            android:text="@string/terca"
+            android:textColor="#52ab7d"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/contrato_terca" />
+
+        <CheckBox
+            android:text="@string/quarta"
+            android:textColor="#52ab7d"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/contrato_quarta"/>
+
+        <CheckBox
+            android:text="@string/quinta"
+            android:textColor="#52ab7d"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/contrato_quinta"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <CheckBox
+            android:text="@string/sexta"
+            android:textColor="#52ab7d"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/contrato_sexta" />
+
+        <CheckBox
+            android:text="@string/sabado"
+            android:textColor="#52ab7d"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/contrato_sabado" />
+
+        <CheckBox
+            android:text="@string/domingo"
+            android:textColor="#52ab7d"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/contrato_domingo"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:text="@string/periodo"
+        android:textSize="20sp"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#52ab7d"
+        />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <CheckBox
+            android:text="@string/manha"
+            android:textColor="#52ab7d"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/contrato_manha" />
+
+        <CheckBox
+            android:text="@string/tarde"
+            android:textColor="#52ab7d"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/contrato_tarde" />
+
+        <CheckBox
+            android:text="@string/noite"
+            android:textColor="#52ab7d"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/contrato_noite"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:text="Paciente: "
+            android:textColor="#52ab7d"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:text="__"
+            android:id="@+id/contrato_paciente_nome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:enabled="false"/>
+        <ImageButton
+            android:src="@drawable/pacientes"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="5dp"
+            android:scaleType="fitXY"
+            android:onClick="adicionarPaciente"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+        <Button
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Contratar"
+            android:textColor="#52ab7d"
+            android:onClick="contratar"
+            android:background="@drawable/fundobotao"
+            android:id="@+id/contrato_button_action"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cancelar"
+            android:textColor="#FF0000"
+            android:onClick="cancelar"
+            android:background="@drawable/fundobotao"
+            android:id="@+id/contrato_button_deletar"/>
+    </LinearLayout>
+
+</LinearLayout>
+
+</ScrollView>

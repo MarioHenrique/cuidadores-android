@@ -2,8 +2,8 @@
 <ScrollView
 xmlns:android="http://schemas.android.com/apk/res/android"
 xmlns:tools="http://schemas.android.com/tools"
-android:id="@+id/activity_cuidadores"
-tools:context="br.com.softcare.cuidadores.activity.CuidadorActivity"
+android:id="@+id/activity_usuario"
+tools:context="br.com.softcare.cuidadores.activity.CuidadorContratoVisualizacaoActivity"
 android:orientation="vertical"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
@@ -15,14 +15,6 @@ android:layout_height="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TextView
-        android:text="Cuidador"
-        android:textAlignment="center"
-        android:textSize="30sp"
-        android:textColor="#52ab7d"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
     <ImageView
         android:layout_marginTop="10dp"
         android:layout_gravity="center_horizontal"
@@ -30,18 +22,21 @@ android:layout_height="match_parent"
         android:layout_width="100dp"
         android:layout_height="100dp" />
 
+
     <LinearLayout
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
-            android:text="@string/cuidador_nome"
+            android:text="Nome: "
             android:textColor="#52ab7d"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
-        <TextView
-            android:id="@+id/cuidador_nome"
+        <EditText
+            android:text="Mário Henrique do Nascimento"
+            android:enabled="false"
+            android:id="@+id/contrato_cuidador_visualizar_nome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
@@ -52,30 +47,15 @@ android:layout_height="match_parent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
-            android:text="@string/cuidador_email"
+            android:text="Telefone: "
             android:textColor="#52ab7d"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
-        <TextView
-            android:id="@+id/cuidador_email"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_marginTop="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <TextView
-            android:text="@string/cuidador_contato"
-            android:textColor="#52ab7d"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <TextView
-            android:id="@+id/cuidador_telefone"
+        <EditText
+            android:text="11966817820"
+            android:enabled="false"
+            android:id="@+id/contrato_cuidador_visualizar_telefone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </LinearLayout>
@@ -85,89 +65,22 @@ android:layout_height="match_parent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
-            android:text="@string/cuidador_zipcode"
+            android:text="Cep: "
             android:textColor="#52ab7d"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
-        <TextView
+        <EditText
+            android:text="07155300"
+            android:enabled="false"
             android:layout_width="match_parent"
-            android:id="@+id/cuidador_cep"
-            android:layout_height="wrap_content" />
-
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_marginTop="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <TextView
-            android:text="@string/busca_bairro"
-            android:textColor="#52ab7d"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <TextView
-            android:id="@+id/cuidador_bairro"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_marginTop="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <TextView
-            android:text="@string/cuidador_cidade"
-            android:textColor="#52ab7d"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <TextView
-            android:id="@+id/cuidador_cidade"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_marginTop="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <TextView
-            android:text="@string/cuidador_estado"
-            android:textColor="#52ab7d"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <TextView
-            android:id="@+id/cuidador_estado"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_marginTop="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <TextView
-            android:text="@string/cuidador_rua"
-            android:textColor="#52ab7d"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <TextView
-            android:id="@+id/cuidador_rua"
-            android:layout_width="match_parent"
+            android:id="@+id/contrato_cuidador_visualizar_cep"
             android:layout_height="wrap_content" />
 
     </LinearLayout>
 
     <TextView
-        android:text="@string/disponibilidade"
+        android:text="Disponobilidade"
         android:textSize="20sp"
         android:layout_marginTop="20dp"
         android:layout_width="wrap_content"
@@ -181,36 +94,36 @@ android:layout_height="match_parent"
         android:layout_height="wrap_content">
 
         <CheckBox
+            android:text="Segunda"
             android:enabled="false"
-            android:text="@string/segunda"
             android:textColor="#52ab7d"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/cuidador_segunda" />
+            android:id="@+id/contrato_cuidador_visualizar_segunda" />
 
         <CheckBox
-            android:text="@string/terca"
+            android:text="Terça"
             android:enabled="false"
             android:textColor="#52ab7d"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/cuidador_terca" />
+            android:id="@+id/contrato_cuidador_visualizar_terca" />
 
         <CheckBox
-            android:text="@string/quarta"
+            android:text="Quarta"
             android:enabled="false"
             android:textColor="#52ab7d"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/cuidador_quarta"/>
+            android:id="@+id/contrato_cuidador_visualizar_quarta"/>
 
         <CheckBox
-            android:text="@string/quinta"
+            android:text="Quinta"
             android:enabled="false"
             android:textColor="#52ab7d"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/cuidador_quinta"/>
+            android:id="@+id/contrato_cuidador_visualizar_quinta"/>
 
     </LinearLayout>
     <LinearLayout
@@ -219,35 +132,34 @@ android:layout_height="match_parent"
         android:layout_height="wrap_content">
 
         <CheckBox
+            android:text="Sexta"
             android:enabled="false"
-            android:text="@string/sexta"
             android:textColor="#52ab7d"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/cuidador_sexta" />
+            android:id="@+id/contrato_cuidador_visualizar_sexta" />
 
         <CheckBox
-            android:text="@string/sabado"
+            android:text="Sabado"
             android:enabled="false"
             android:textColor="#52ab7d"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/cuidador_sabado" />
+            android:id="@+id/contrato_cuidador_visualizar_sabado" />
 
         <CheckBox
-            android:text="@string/domingo"
+            android:text="Domingo"
             android:enabled="false"
             android:textColor="#52ab7d"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/cuidador_domingo"/>
+            android:id="@+id/contrato_cuidador_visualizar_domingo"/>
 
     </LinearLayout>
 
     <TextView
-        android:text="@string/periodo"
+        android:text="Periodo"
         android:textSize="20sp"
-        android:enabled="false"
         android:layout_marginTop="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -260,28 +172,28 @@ android:layout_height="match_parent"
         android:layout_height="wrap_content">
 
         <CheckBox
+            android:text="Manhã"
             android:enabled="false"
-            android:text="@string/manha"
             android:textColor="#52ab7d"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/cuidador_manha" />
+            android:id="@+id/contrato_cuidador_visualizar_manha" />
 
         <CheckBox
+            android:text="Tarde"
             android:enabled="false"
-            android:text="@string/tarde"
             android:textColor="#52ab7d"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/cuidador_tarde" />
+            android:id="@+id/contrato_cuidador_visualizar_tarde" />
 
         <CheckBox
+            android:text="Noite"
             android:enabled="false"
-            android:text="@string/noite"
             android:textColor="#52ab7d"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/cuidador_noite"/>
+            android:id="@+id/contrato_cuidador_visualizar_noite"/>
 
     </LinearLayout>
 
@@ -292,23 +204,16 @@ android:layout_height="match_parent"
         android:orientation="horizontal"
         android:gravity="center"
         >
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Contratar"
-            android:textColor="#52ab7d"
-            android:onClick="novoContrato"
-            android:background="@drawable/fundobotao"
-            android:id="@+id/tratamento_button_action"/>
-        <Button
-            android:background="@drawable/fundobotao"
-            android:text="@string/voltar"
-            android:id="@+id/cuidador_voltar"
-            android:textColor="#52ab7d"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Voltar"
+        android:textColor="#52ab7d"
+        android:onClick="voltar"
+        android:background="@drawable/fundobotao"/>
 
-    </LinearLayout>
+        </LinearLayout>
 
 </LinearLayout>
+
 </ScrollView>

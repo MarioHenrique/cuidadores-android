@@ -100,6 +100,31 @@ public final class RestExecuter {
 		}
 	}
 
+
+
+	public <T> List<LinkedHashMap> getComplexList(String token, API_URLS apiUrls, Class<T> responseClass,Object ... param) throws BusinessException {
+		final HttpHeaders headers = getHeaders(token);
+		final HttpEntity<String> entity = new HttpEntity<>(headers);
+		try{
+			final ResponseEntity<String> result = restTemplate.exchange(apiUrls.getUrl(), HttpMethod.GET, entity,String.class,param);
+			final List<LinkedHashMap> resultListMap = objectMapper.readValue(result.getBody(), new TypeReference<List<T>>() {
+			});
+			return resultListMap;
+		} catch (HttpStatusCodeException e) {
+			String responseBodyAsString = e.getResponseBodyAsString();
+			String message = null;
+			try {
+				ExceptionError readValue = objectMapper.readValue(responseBodyAsString, ExceptionError.class);
+				message = readValue.getMessage();
+			} catch (Exception a) {
+				message = "";
+			}
+			throw new BusinessException(message);
+		} catch (Exception e) {
+			throw new BusinessException(e.getMessage());
+		}
+	}
+
 	public <T> List<T> getList(String token, API_URLS apiUrls, Class<T> responseClass,Object ... param) throws BusinessException {
 		final HttpHeaders headers = getHeaders(token);
 		final HttpEntity<String> entity = new HttpEntity<>(headers);
@@ -140,7 +165,9 @@ public final class RestExecuter {
 				String className =  fields[i].getType().getSimpleName();
 				if(className.equals("Long")){
 					fields[i].set(t,((Integer)item.get(nomeCampo)).longValue());
-				}else {
+				}else if(className.equals("LinkedHashMap")) {
+					final Class<? extends Field> aClass = fields[i].getClass();
+				}else{
 					fields[i].set(t, item.get(nomeCampo));
 				}
 			}

@@ -34,13 +34,13 @@
     <ImageButton
         android:src="@drawable/novo"
         android:background="@drawable/fundobotao"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:scaleType="fitXY"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:onClick="novoPaciente"
-        />
+    android:layout_width="60dp"
+    android:layout_height="60dp"
+    android:scaleType="fitXY"
+    android:layout_alignParentBottom="true"
+    android:layout_alignParentRight="true"
+    android:onClick="novoPaciente"
+    />
 
 </RelativeLayout>
 
