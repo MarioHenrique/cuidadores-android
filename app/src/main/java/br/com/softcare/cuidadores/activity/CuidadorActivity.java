@@ -102,7 +102,6 @@ public class CuidadorActivity extends AppCompatActivity {
                 activiCheckBox(this,R.id.cuidador_noite);
                 break;
         }
-
     }
 
 }

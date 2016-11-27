@@ -16,16 +16,19 @@ import br.com.softcare.cuidadores.client.WebServices;
 import br.com.softcare.cuidadores.dto.LinkedMapTransferDTO;
 import br.com.softcare.cuidadores.dto.PropostaResponseDTO;
 import br.com.softcare.cuidadores.dto.TratamentoDTO;
+import br.com.softcare.cuidadores.dto.Usuario;
 import gp1.ihc.cuidadores.R;
 
 public class ContratoActivity extends Activity {
 
     private List<LinkedHashMap> propostas;
+    private Usuario usuarioLogado;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contrato);
+        usuarioLogado = (Usuario)getIntent().getSerializableExtra("usuario");
     }
 
     @Override
@@ -49,6 +52,7 @@ public class ContratoActivity extends Activity {
                 LinkedHashMap contrato = (LinkedHashMap)parent.getItemAtPosition(position);
                 final LinkedMapTransferDTO linked = new LinkedMapTransferDTO(contrato);
                 intent.putExtra("contrato",linked);
+                intent.putExtra("usuario",usuarioLogado);
                 startActivity(intent);
             }
         });

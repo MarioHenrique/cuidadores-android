@@ -2,7 +2,6 @@ package br.com.softcare.cuidadores.client;
 
 import android.app.ProgressDialog;
 
-import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 
@@ -11,7 +10,7 @@ import br.com.softcare.cuidadores.dto.EspecialidadeDTO;
 import br.com.softcare.cuidadores.dto.ListaDeCuidadores;
 import br.com.softcare.cuidadores.dto.PacienteDTO;
 import br.com.softcare.cuidadores.dto.PropostaDTO;
-import br.com.softcare.cuidadores.dto.PropostaResponseDTO;
+import br.com.softcare.cuidadores.dto.SintomaDTO;
 import br.com.softcare.cuidadores.dto.TratamentoDTO;
 import br.com.softcare.cuidadores.dto.Usuario;
 import br.com.softcare.cuidadores.dto.UsuarioAlteracao;
@@ -186,5 +185,29 @@ public final class CuidadoresCliente {
 	public List<LinkedHashMap> listaDeContratos() throws BusinessException {
 		validarToken();
 		return propostaService.listaDePropostas(token);
+	}
+
+	public void mudarStatusDoContrato(Long id, String status) throws BusinessException {
+		validarToken();
+		propostaService.alterarStatus(token,id,status);
+	}
+
+	public void adicionarSintoma(Long contratoId, String descricaoSintoma) throws BusinessException {
+		validarToken();
+		propostaService.adicionarSintoma(token,contratoId,descricaoSintoma);
+	}
+
+	public List<SintomaDTO> listaDeSintomas(Long contratoId) throws BusinessException {
+		validarToken();
+		return propostaService.listaDeSintomas(token,contratoId);
+	}
+
+	public void atualizarSintoma(Long contratoId, SintomaDTO sintoma) throws BusinessException {
+		validarToken();
+		propostaService.atualizarSintoma(token,contratoId,sintoma);
+	}
+
+	public void deletarSintoma(Long contratoId, Long id) throws BusinessException {
+		propostaService.deletarSintoma(token,contratoId,id);
 	}
 }

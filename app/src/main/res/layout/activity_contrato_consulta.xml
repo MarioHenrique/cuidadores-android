@@ -41,6 +41,44 @@ tools:context="br.com.softcare.cuidadores.activity.ContratoConsultaActivity">
 
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:id="@+id/contrato_opcao_status">
+
+    <Button
+        android:text="Aprovar"
+        android:id="@+id/contrato_button_status_aprovar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="aprovar"/>
+
+        <Button
+            android:text="Negar"
+            android:id="@+id/contrato_button_status_negar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="negar"/>
+
+        <Button
+            android:text="Iniciar"
+            android:id="@+id/contrato_button_status_iniciar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="iniciar"/>
+
+        <Button
+            android:text="Cancelar"
+            android:id="@+id/contrato_button_status_cancelar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="cancelar"/>
+
+    </LinearLayout>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
@@ -163,11 +201,12 @@ tools:context="br.com.softcare.cuidadores.activity.ContratoConsultaActivity">
     <LinearLayout
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:id="@+id/contrato_procedimento">
         <ImageView
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:src="@drawable/procedimento"
+            android:src="@drawable/procedimentos"
             />
         <Button
             android:background="@drawable/fundobotao"
@@ -175,6 +214,7 @@ tools:context="br.com.softcare.cuidadores.activity.ContratoConsultaActivity">
             android:textColor="#52ab7d"
             android:layout_width="wrap_content"
             android:layout_height="60dp"
+            android:onClick="adicionarProcedimentos"
             android:scaleType="fitXY"
             />
     </LinearLayout>
@@ -182,7 +222,8 @@ tools:context="br.com.softcare.cuidadores.activity.ContratoConsultaActivity">
     <LinearLayout
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:id="@+id/contrato_sintomas">
         <ImageView
             android:layout_width="60dp"
             android:layout_height="60dp"
@@ -194,6 +235,7 @@ tools:context="br.com.softcare.cuidadores.activity.ContratoConsultaActivity">
             android:textColor="#52ab7d"
             android:layout_width="wrap_content"
             android:layout_height="60dp"
+            android:onClick="adicionarSintomas"
             android:scaleType="fitXY"
             />
     </LinearLayout>

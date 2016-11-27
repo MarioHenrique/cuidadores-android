@@ -54,10 +54,10 @@ public class MenuActivity extends AppCompatActivity {
         super.onResume();
         GridView gridView = (GridView)findViewById(R.id.gridview);
         List<ImageButtonAdapter.Item> mItems = new ArrayList<>();
+        mItems.add(new ImageButtonAdapter.Item(R.drawable.contratoitemdesc));
         if(usuarioLogado.getPerfil().contains(Perfil.RESPONSAVEL)) {
             mItems.add(new ImageButtonAdapter.Item(R.drawable.cuidadores));
             mItems.add(new ImageButtonAdapter.Item(R.drawable.pacientes));
-            mItems.add(new ImageButtonAdapter.Item(R.drawable.contratoitemdesc));
         }
         gridView.setAdapter(new ImageButtonAdapter(this,mItems));
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -78,6 +78,7 @@ public class MenuActivity extends AppCompatActivity {
                         break;
                     case R.drawable.contratoitemdesc:
                         final Intent contratos = new Intent(MenuActivity.this, ContratoActivity.class);
+                        contratos.putExtra("usuario",usuarioLogado);
                         startActivity(contratos);
                         break;
                 }

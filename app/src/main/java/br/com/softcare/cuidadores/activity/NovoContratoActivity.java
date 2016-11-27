@@ -9,6 +9,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
+
 import static br.com.softcare.cuidadores.utils.Utils.*;
 import java.util.Date;
 
@@ -167,7 +169,9 @@ public class NovoContratoActivity extends Activity {
 
 
     @Override
-    protected void onSuccess() {
+    protected void onSuccess()
+    {
+        Toast.makeText(this,"Contrato criado com sucesso!",Toast.LENGTH_LONG);
         finish();
     }
 
