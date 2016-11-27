@@ -3,8 +3,11 @@ package br.com.softcare.cuidadores.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.Toast;
+
 import java.util.Set;
 import br.com.softcare.cuidadores.adapter.PerfilAdapter;
 import br.com.softcare.cuidadores.client.WebServices;
@@ -14,6 +17,7 @@ import br.com.softcare.cuidadores.enuns.Disponibilidade;
 import br.com.softcare.cuidadores.enuns.Perfil;
 import br.com.softcare.cuidadores.enuns.Periodo;
 import static br.com.softcare.cuidadores.utils.Utils.*;
+import static gp1.ihc.cuidadores.R.drawable.cuidador;
 
 
 import gp1.ihc.cuidadores.R;
@@ -54,6 +58,36 @@ public class UsuarioActivity extends Activity {
                 doInBackground(UsuarioActivity.this);
             }
         });
+
+        spinnerPerfil.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (position == 0) {
+                    alterarPerfil(Perfil.CUIDADOR);
+                } else {
+                    alterarPerfil(Perfil.RESPONSAVEL);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+
+    }
+
+    public void alterarPerfil(Perfil perfil) {
+        int visivel = View.GONE;
+        if (Perfil.CUIDADOR.equals(perfil)) {
+            visivel = View.VISIBLE;
+        }
+        findViewById(R.id.usuario_label_disponibilidade).setVisibility(visivel);
+        findViewById(R.id.usuario_layout_disp_1).setVisibility(visivel);
+        findViewById(R.id.usuario_layout_disp_2).setVisibility(visivel);
+        findViewById(R.id.usuario_label_periodo).setVisibility(visivel);
+        findViewById(R.id.usuario_layout_periodo).setVisibility(visivel);
     }
 
     @Override
@@ -179,5 +213,7 @@ public class UsuarioActivity extends Activity {
         }
 
     }
+
+
 
 }

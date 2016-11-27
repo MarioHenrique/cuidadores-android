@@ -69,6 +69,7 @@ public class BuscaActivity extends Activity {
     }
 
     private void setarPeriodo(BuscaDeCuidadoresDTO buscaDeCuidadoresDTO) {
+
         if(isCheckBoxChecked(this,R.id.busca_manha)){
             buscaDeCuidadoresDTO.adicionarPeriodo(Periodo.MANHA);
         }

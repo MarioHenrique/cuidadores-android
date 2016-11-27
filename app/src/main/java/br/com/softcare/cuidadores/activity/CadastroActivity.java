@@ -1,5 +1,6 @@
 package br.com.softcare.cuidadores.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Spinner;
@@ -12,6 +13,7 @@ import br.com.softcare.cuidadores.enuns.Perfil;
 import gp1.ihc.cuidadores.R;
 
 import static br.com.softcare.cuidadores.utils.Utils.getValorDaTextView;
+import static gp1.ihc.cuidadores.R.drawable.cuidador;
 
 public class CadastroActivity extends Activity {
 
@@ -45,5 +47,7 @@ public class CadastroActivity extends Activity {
         Toast.makeText(getApplicationContext(), "Usuário cadastrado com sucesso.", Toast.LENGTH_SHORT).show();
         finish();
     }
+
+
 
 }

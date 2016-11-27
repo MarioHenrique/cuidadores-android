@@ -84,10 +84,23 @@
         <activity
             android:name="br.com.softcare.cuidadores.activity.PacienteContratoVisualizacaoActivity"
             android:windowSoftInputMode="stateHidden" />
-        <activity android:name="br.com.softcare.cuidadores.activity.ProcedimentoActivity" />
-        <activity android:name="br.com.softcare.cuidadores.activity.SintomesActivity" />
-        <activity android:name="br.com.softcare.cuidadores.activity.procedimentoEditActivity" />
-        <activity android:name="br.com.softcare.cuidadores.activity.SintomasEditActivity"></activity>
+        <activity android:name="br.com.softcare.cuidadores.activity.ProcedimentoActivity"
+            android:windowSoftInputMode="stateHidden"/>
+
+        <activity android:name="br.com.softcare.cuidadores.activity.SintomesActivity"
+            android:windowSoftInputMode="stateHidden"/>
+
+        <activity android:name="br.com.softcare.cuidadores.activity.procedimentoEditActivity"
+            android:windowSoftInputMode="stateHidden"/>
+
+        <activity android:name="br.com.softcare.cuidadores.activity.SintomasEditActivity"
+            android:windowSoftInputMode="stateHidden"/>
+
+        <activity android:name="br.com.softcare.cuidadores.activity.EspecialidadeActivity"
+            android:windowSoftInputMode="stateHidden"/>
+
+        <activity android:name="br.com.softcare.cuidadores.activity.EspecialidadeEditActivity"
+            android:windowSoftInputMode="stateHidden"/>
     </application>
 
 </manifest>

@@ -18,7 +18,7 @@ import static br.com.softcare.cuidadores.utils.Utils.setValorDaTextView;
 
 public class CuidadorActivity extends AppCompatActivity {
 
-    private Cuidador cuidador;
+    private Cuidador cuidador = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -103,5 +103,7 @@ public class CuidadorActivity extends AppCompatActivity {
                 break;
         }
     }
+
+
 
 }
