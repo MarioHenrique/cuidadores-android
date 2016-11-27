@@ -3,12 +3,14 @@ package br.com.softcare.cuidadores.dto;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.io.Serializable;
+
 /**
  * Created by mario on 19/11/16.
  */
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class EspecialidadeDTO {
+public class EspecialidadeDTO implements Serializable{
 
     private Long id;
 

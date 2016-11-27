@@ -17,6 +17,7 @@ import br.com.softcare.cuidadores.enuns.Disponibilidade;
 import br.com.softcare.cuidadores.enuns.Perfil;
 import br.com.softcare.cuidadores.enuns.Periodo;
 import static br.com.softcare.cuidadores.utils.Utils.*;
+import static gp1.ihc.cuidadores.R.drawable.cuidador;
 
 
 import gp1.ihc.cuidadores.R;
@@ -87,7 +88,7 @@ public class UsuarioActivity extends Activity {
         findViewById(R.id.usuario_layout_disp_2).setVisibility(visivel);
         findViewById(R.id.usuario_label_periodo).setVisibility(visivel);
         findViewById(R.id.usuario_layout_periodo).setVisibility(visivel);
-    }
+    }egg
 
     @Override
     protected void operation() throws Exception {

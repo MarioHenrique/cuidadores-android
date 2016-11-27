@@ -58,6 +58,9 @@ public class MenuActivity extends AppCompatActivity {
             mItems.add(new ImageButtonAdapter.Item(R.drawable.cuidadores));
             mItems.add(new ImageButtonAdapter.Item(R.drawable.pacientes));
         }
+        if(usuarioLogado.getPerfil().contains(Perfil.CUIDADOR)) {
+            mItems.add(new ImageButtonAdapter.Item(R.drawable.especialidade));
+        }
         gridView.setAdapter(new ImageButtonAdapter(this,mItems));
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -77,6 +80,10 @@ public class MenuActivity extends AppCompatActivity {
                         break;
                     case R.drawable.config:
                         Toast.makeText(MenuActivity.this,"Configurações",Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.drawable.especialidade:
+                        final Intent intentEspecialidades = new Intent(MenuActivity.this, EspecialidadeActivity.class);
+                        startActivity(intentEspecialidades);
                         break;
                 }
 

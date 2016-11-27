@@ -98,7 +98,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#52ab7d"
-        android:visibility="invisible"
+        android:visibility="gone"
         android:id="@+id/usuario_label_disponibilidade"
         />
 
@@ -106,7 +106,7 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:visibility="invisible"
+        android:visibility="gone"
         android:id="@+id/usuario_layout_disp_1">
 
         <CheckBox
@@ -142,7 +142,7 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:visibility="invisible"
+        android:visibility="gone"
         android:id="@+id/usuario_layout_disp_2">
 
         <CheckBox
@@ -175,7 +175,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#52ab7d"
-        android:visibility="invisible"
+        android:visibility="gone"
         android:id="@+id/usuario_label_periodo"
         />
 
@@ -183,7 +183,7 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:visibility="invisible"
+        android:visibility="gone"
         android:id="@+id/usuario_layout_periodo">
 
         <CheckBox
