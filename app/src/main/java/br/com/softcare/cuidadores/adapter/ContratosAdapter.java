@@ -58,6 +58,13 @@ public class ContratosAdapter extends BaseAdapter {
         LinkedHashMap careGiver = (LinkedHashMap)proposta.get("careGiver");
         String name =(String)careGiver.get("name");
         cuidadorNome.setText(name);
+
+        TextView pacienteNome = (TextView)view.findViewById(R.id.contrato_paciente_nome);
+        LinkedHashMap patient = (LinkedHashMap)proposta.get("patient");
+        String namePatient =(String)patient.get("name");
+        pacienteNome.setText(namePatient);
+
+
         return view;
     }
 }

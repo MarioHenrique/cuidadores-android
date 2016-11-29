@@ -71,6 +71,13 @@ tools:context="br.com.softcare.cuidadores.activity.ContratoConsultaActivity">
             android:onClick="iniciar"/>
 
         <Button
+            android:text="Finalizar"
+            android:id="@+id/contrato_button_status_finalizar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="finalizar"/>
+
+        <Button
             android:text="Cancelar"
             android:id="@+id/contrato_button_status_cancelar"
             android:layout_width="wrap_content"

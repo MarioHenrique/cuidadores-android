@@ -61,5 +61,4 @@ public class PerfilAdapter extends BaseAdapter {
         return view;
     }
 
-
 }

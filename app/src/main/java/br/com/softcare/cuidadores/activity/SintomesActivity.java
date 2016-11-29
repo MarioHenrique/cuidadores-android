@@ -44,6 +44,7 @@ public class SintomesActivity extends Activity {
 
     public void novoSintoma(View viwe){
         final Intent intent = new Intent(this, SintomasEditActivity.class);
+        intent.putExtra("usuario",usuarioLogado);
         intent.putExtra("contratoId",contratoId);
         startActivity(intent);
     }

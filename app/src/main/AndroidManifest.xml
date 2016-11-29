@@ -84,23 +84,25 @@
         <activity
             android:name="br.com.softcare.cuidadores.activity.PacienteContratoVisualizacaoActivity"
             android:windowSoftInputMode="stateHidden" />
-        <activity android:name="br.com.softcare.cuidadores.activity.ProcedimentoActivity"
-            android:windowSoftInputMode="stateHidden"/>
-
-        <activity android:name="br.com.softcare.cuidadores.activity.SintomesActivity"
-            android:windowSoftInputMode="stateHidden"/>
-
-        <activity android:name="br.com.softcare.cuidadores.activity.procedimentoEditActivity"
-            android:windowSoftInputMode="stateHidden"/>
-
-        <activity android:name="br.com.softcare.cuidadores.activity.SintomasEditActivity"
-            android:windowSoftInputMode="stateHidden"/>
-
-        <activity android:name="br.com.softcare.cuidadores.activity.EspecialidadeActivity"
-            android:windowSoftInputMode="stateHidden"/>
-
-        <activity android:name="br.com.softcare.cuidadores.activity.EspecialidadeEditActivity"
-            android:windowSoftInputMode="stateHidden"/>
+        <activity
+            android:name="br.com.softcare.cuidadores.activity.ProcedimentoActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="br.com.softcare.cuidadores.activity.SintomesActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="br.com.softcare.cuidadores.activity.ProcedimentoEditActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="br.com.softcare.cuidadores.activity.SintomasEditActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="br.com.softcare.cuidadores.activity.EspecialidadeActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="br.com.softcare.cuidadores.activity.EspecialidadeEditActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity android:name="br.com.softcare.cuidadores.activity.TratamentoContratoVisualizacaoActivity"></activity>
     </application>
 
 </manifest>

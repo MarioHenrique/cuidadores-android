@@ -103,6 +103,30 @@ android:layout_height="match_parent"
     </LinearLayout>
 
     <LinearLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/tratamentos"
+            android:onClick="verTratamentos"
+            />
+        <Button
+            android:background="@drawable/fundobotao"
+            android:text="Tratamentos"
+            android:onClick="verTratamentos"
+            android:textColor="#52ab7d"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:scaleType="fitXY"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_marginTop="15dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

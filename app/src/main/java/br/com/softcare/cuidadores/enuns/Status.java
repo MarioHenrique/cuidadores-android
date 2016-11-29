@@ -8,18 +8,24 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum Status {
 
-    PENDING("PENDING","Pendente de aprocação do cuidador"),ACEPTED("ACEPTED","Esperando inicialização por parte do responsavel"),DENIED("DENIED","Contrato negado pelo cuidador"),INITIALIZED("INITIALIZED","Contrato iniciado"),FINISHED("FINISHED","Contrato finalizado"),CANCELED("CANCELED","Contrato cancelado");
+    PENDING("PENDING","Pendente de aprocação do cuidador","PENDENTE"),ACEPTED("ACEPTED","Esperando inicialização por parte do responsavel","ACEITO"),DENIED("DENIED","Contrato negado pelo cuidador","NEGADO"),INITIALIZED("INITIALIZED","Contrato iniciado","INICIADO"),FINISHED("FINISHED","Contrato finalizado pelo responsavel","FINALIZADO"),CANCELED("CANCELED","Contrato cancelado","CANCELADO");
 
     private String status;
     private String descricao;
+    private String portName;
 
-    private Status(String status, String descricao){
+    private Status(String status, String descricao,String portName){
         this.status = status;
         this.descricao = descricao;
+        this.portName = portName;
     }
 
     public String getDescricao() {
         return descricao;
+    }
+
+    public String getPortName() {
+        return portName;
     }
 
     @Override

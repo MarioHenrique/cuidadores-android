@@ -86,6 +86,7 @@ public class ContratoConsultaActivity extends Activity {
         desabilitarBotao(R.id.contrato_button_status_negar);
         desabilitarBotao(R.id.contrato_button_status_cancelar);
         desabilitarBotao(R.id.contrato_button_status_iniciar);
+        desabilitarBotao(R.id.contrato_button_status_finalizar);
         LinearLayout sintomas = (LinearLayout)findViewById(R.id.contrato_sintomas);
         LinearLayout procedimentos = (LinearLayout)findViewById(R.id.contrato_procedimento);
         sintomas.setVisibility(View.GONE);
@@ -119,51 +120,42 @@ public class ContratoConsultaActivity extends Activity {
             habilitarBotao(R.id.contrato_button_status_iniciar);
             habilitarBotao(R.id.contrato_button_status_cancelar);
         }else if(statusContrato.equals(Status.INITIALIZED)){
-            habilitarBotao(R.id.contrato_button_status_cancelar);
+            habilitarBotao(R.id.contrato_button_status_finalizar);
         }
     }
 
-    public boolean pergunta(String mensagem){
-        final boolean[] pergunta = {false};
+    public void mudar(String mensagem, final Status status){
         new AlertDialog.Builder(this)
                 .setMessage(mensagem)
                 .setCancelable(false)
                 .setPositiveButton("Sim", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        pergunta[0] = true;
+                        statusOperation = status;
+                        doInBackground(ContratoConsultaActivity.this);
                     }
                 })
                 .setNegativeButton("Não",null)
                 .show();
-        return pergunta[0];
     }
 
     public void aprovar(View view){
-        if(pergunta("Deseja realmente aprovar o contrato? ")){
-            statusOperation = Status.ACEPTED;
-            doInBackground(this);
-        }
+        mudar("Deseja realmente aprovar o contrato? ",Status.ACEPTED);
     }
 
     public void negar(View view){
-        if(pergunta("Deseja realmente reprovar o contrato? ")) {
-            statusOperation = Status.DENIED;
-            doInBackground(this);
-        }
+        mudar("Deseja realmente reprovar o contrato? ",Status.DENIED);
     }
 
     public void cancelar(View view){
-        if(pergunta("Deseja realmente cancelar o contrato? ")) {
-            statusOperation = Status.CANCELED;
-            doInBackground(this);
-        }
+        mudar("Deseja realmente cancelar o contrato? ",Status.CANCELED);
     }
 
     public void iniciar(View view){
-        if(pergunta("Deseja realmente iniciar o contrato? ")) {
-            statusOperation = Status.INITIALIZED;
-            doInBackground(this);
-        }
+        mudar("Deseja realmente iniciar o contrato? ",Status.INITIALIZED);
+    }
+
+    public void finalizar(View view){
+        mudar("Deseja realmente finalizar o contrato? ",Status.FINISHED);
     }
 
     public void visualizarCuidador(View view){
@@ -189,7 +181,7 @@ public class ContratoConsultaActivity extends Activity {
 
     @Override
     protected void onSuccess() {
-        Toast.makeText(this,"Status mudado com sucesso",Toast.LENGTH_LONG).show();
+        Toast.makeText(this,"Mudança do status do contrato realizado com sucesso!",Toast.LENGTH_LONG).show();
         statusAtual = statusOperation;
        ContratoConsultaActivity.this.onResume();
     }

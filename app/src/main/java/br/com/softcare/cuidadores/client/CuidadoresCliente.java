@@ -9,11 +9,13 @@ import br.com.softcare.cuidadores.dto.BuscaDeCuidadoresDTO;
 import br.com.softcare.cuidadores.dto.EspecialidadeDTO;
 import br.com.softcare.cuidadores.dto.ListaDeCuidadores;
 import br.com.softcare.cuidadores.dto.PacienteDTO;
+import br.com.softcare.cuidadores.dto.ProcedimentoDTO;
 import br.com.softcare.cuidadores.dto.PropostaDTO;
 import br.com.softcare.cuidadores.dto.SintomaDTO;
 import br.com.softcare.cuidadores.dto.TratamentoDTO;
 import br.com.softcare.cuidadores.dto.Usuario;
 import br.com.softcare.cuidadores.dto.UsuarioAlteracao;
+import br.com.softcare.cuidadores.enuns.Status;
 import br.com.softcare.cuidadores.exceptions.BusinessException;
 import br.com.softcare.cuidadores.services.CuidadorService;
 import br.com.softcare.cuidadores.services.PacienteService;
@@ -182,9 +184,9 @@ public final class CuidadoresCliente {
 		propostaService.adicionarProposta(proposta,token);
 	}
 
-	public List<LinkedHashMap> listaDeContratos() throws BusinessException {
+	public List<LinkedHashMap> listaDeContratos(Status statusDoContrato) throws BusinessException {
 		validarToken();
-		return propostaService.listaDePropostas(token);
+		return propostaService.listaDePropostas(token,statusDoContrato);
 	}
 
 	public void mudarStatusDoContrato(Long id, String status) throws BusinessException {
@@ -209,5 +211,21 @@ public final class CuidadoresCliente {
 
 	public void deletarSintoma(Long contratoId, Long id) throws BusinessException {
 		propostaService.deletarSintoma(token,contratoId,id);
+	}
+
+	public void adicionarProcedimento(Long contratoId, ProcedimentoDTO procedimento) throws BusinessException {
+		propostaService.adicionarProcedimento(token,contratoId,procedimento);
+	}
+
+	public List<ProcedimentoDTO> listaDeProcedimentos(Long contratoId) throws BusinessException {
+		return propostaService.listaDeProcedimentos(token,contratoId);
+	}
+
+	public void atualizarProcedimento(Long contratoId, ProcedimentoDTO procedimento) throws BusinessException {
+		propostaService.atualizarProcedimento(token,contratoId,procedimento);
+	}
+
+	public void deletarProcedimento(Long contratoId, Long id) throws BusinessException {
+		propostaService.deletarProcimento(token,contratoId,id);
 	}
 }

@@ -46,7 +46,10 @@ public class MenuActivity extends AppCompatActivity {
     }
 
     private void setarInfo(Button button){
-        button.setText(usuarioLogado.getNome()+"\n\n"+usuarioLogado.getEmail());
+        Perfil perfil = null;
+        for(Perfil per :usuarioLogado.getPerfil())
+            perfil = per;
+        button.setText(usuarioLogado.getNome()+"\n\n"+perfil.getLabel());
     }
 
     @Override

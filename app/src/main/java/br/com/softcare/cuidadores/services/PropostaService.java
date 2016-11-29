@@ -4,11 +4,13 @@ import java.util.LinkedHashMap;
 import java.util.List;
 
 import br.com.softcare.cuidadores.client.RestExecuter;
+import br.com.softcare.cuidadores.dto.ProcedimentoDTO;
 import br.com.softcare.cuidadores.dto.PropostaDTO;
 import br.com.softcare.cuidadores.dto.PropostaResponseDTO;
 import br.com.softcare.cuidadores.dto.PropostaStatusDTO;
 import br.com.softcare.cuidadores.dto.SintomaDTO;
 import br.com.softcare.cuidadores.enuns.API_URLS;
+import br.com.softcare.cuidadores.enuns.Status;
 import br.com.softcare.cuidadores.exceptions.BusinessException;
 
 /**
@@ -22,8 +24,8 @@ public class PropostaService {
         restExecuter.post(token, API_URLS.API_PROPOSAL,proposta,PropostaDTO.class);
     }
 
-    public List<LinkedHashMap> listaDePropostas(String token) throws BusinessException {
-        return restExecuter.getComplexList(token,API_URLS.API_PROPOSAL,PropostaResponseDTO.class);
+    public List<LinkedHashMap> listaDePropostas(String token, Status statusDoContrato) throws BusinessException {
+        return restExecuter.getComplexList(token,API_URLS.API_PROPOSAL_PESQUISA,PropostaResponseDTO.class,statusDoContrato.toString());
     }
 
     public void alterarStatus(String token, Long id, String status) throws BusinessException {
@@ -49,5 +51,21 @@ public class PropostaService {
 
     public void deletarSintoma(String token, Long contratoId, Long id) throws BusinessException {
         restExecuter.delete(token,API_URLS.API_PROPOSAL_ID_SYMPTOM_ID,contratoId,id);
+    }
+
+    public void adicionarProcedimento(String token, Long contratoId, ProcedimentoDTO procedimento) throws BusinessException {
+        restExecuter.post(token,API_URLS.API_PROPOSAL_ID_PROCEDURE,procedimento,ProcedimentoDTO.class,contratoId);
+    }
+
+    public List<ProcedimentoDTO> listaDeProcedimentos(String token, Long contratoId) throws BusinessException {
+        return restExecuter.getList(token,API_URLS.API_PROPOSAL_ID_PROCEDURE,ProcedimentoDTO.class,contratoId);
+    }
+
+    public void atualizarProcedimento(String token, Long contratoId, ProcedimentoDTO procedimento) throws BusinessException {
+        restExecuter.put(token,API_URLS.API_PROPOSAL_ID_PROCEDURE_ID,procedimento,ProcedimentoDTO.class,contratoId,procedimento.getId());
+    }
+
+    public void deletarProcimento(String token, Long contratoId, Long id) throws BusinessException {
+        restExecuter.delete(token,API_URLS.API_PROPOSAL_ID_PROCEDURE_ID,contratoId,id);
     }
 }

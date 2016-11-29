@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 import br.com.softcare.cuidadores.client.WebServices;
 import br.com.softcare.cuidadores.dto.PacienteDTO;
@@ -18,6 +19,7 @@ public class TratamentoEditActivity extends Activity {
     private TratamentoDTO tratamentoDTO;
     private PacienteDTO pacienteDTO;
     private Boolean isDeleteOperation = false;
+    private boolean verApenas;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +27,17 @@ public class TratamentoEditActivity extends Activity {
         setContentView(R.layout.activity_tratamento_edit);
         tratamentoDTO = (TratamentoDTO)getIntent().getSerializableExtra("tratamento");
         pacienteDTO = (PacienteDTO)getIntent().getSerializableExtra("paciente");
+        verApenas = getIntent().getBooleanExtra("verApenas",false);
+        if(verApenas){
+            Button action =  (Button)findViewById(R.id.tratamento_button_action);
+            action.setVisibility(View.GONE);
+            Button delete =  (Button)findViewById(R.id.tratamento_button_deletar);
+            delete.setVisibility(View.GONE);
+            EditText nome = (EditText)findViewById(R.id.tratamento_nome);
+            nome.setEnabled(false);
+            EditText descricao = (EditText)findViewById(R.id.tratamento_descricao);
+            descricao.setEnabled(false);
+        }
         if(tratamentoDTO !=null){
             setValorDaTextView(this,R.id.tratamento_nome,tratamentoDTO.getNome());
             setValorDaTextView(this,R.id.tratamento_descricao,tratamentoDTO.getDescricao());

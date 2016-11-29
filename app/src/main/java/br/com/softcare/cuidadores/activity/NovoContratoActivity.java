@@ -162,8 +162,8 @@ public class NovoContratoActivity extends Activity {
         setarDisponibilidate(proposta);
         proposta.setDataInicial(getValorDaTextView(this,R.id.contrato_data_inicio));
         proposta.setDataFinal(getValorDaTextView(this,R.id.contrato_data_final));
-        proposta.setCuidadorId(cuidador.getId());
-        proposta.setPacienteId(paciente.getId());
+        proposta.setCuidadorId(cuidador == null?null:cuidador.getId());
+        proposta.setPacienteId(paciente == null?null:paciente.getId());
         WebServices.cuidadores.adicionarProposta(proposta);
     }
 
@@ -171,7 +171,7 @@ public class NovoContratoActivity extends Activity {
     @Override
     protected void onSuccess()
     {
-        Toast.makeText(this,"Contrato criado com sucesso!",Toast.LENGTH_LONG);
+        Toast.makeText(this,"Contrato criado com sucesso!",Toast.LENGTH_LONG).show();
         finish();
     }
 

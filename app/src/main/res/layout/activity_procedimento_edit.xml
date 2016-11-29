@@ -1,13 +1,151 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_procedimento_edit"
+<ScrollView
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+android:id="@+id/activity_usuario"
+tools:context="br.com.softcare.cuidadores.activity.ProcedimentoEditActivity"
+android:orientation="vertical"
+android:layout_width="match_parent"
+android:layout_height="match_parent">
+
+<LinearLayout
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="br.com.softcare.cuidadores.activity.procedimentoEditActivity">
+    android:orientation="vertical">
 
-</RelativeLayout>
+    <ImageView
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/procedimentos"
+        android:layout_width="100dp"
+        android:layout_height="100dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nome: "/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/procedimento_nome"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Descrição: "/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textCapSentences|textMultiLine"
+            android:maxLength="100"
+            android:maxLines="10"
+            android:id="@+id/procedimento_descricao"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Localização: "/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/procedimento_localizacao"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Inicio: "/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/procedimento_inicio"
+            android:enabled="false"
+            />
+        <ImageButton
+            android:id="@+id/procedimento_button_inicio"
+            android:src="@drawable/date"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:onClick="horarioInicial"
+            android:layout_marginLeft="5dp"
+            android:scaleType="fitXY"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fim: "/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/procedimento_fim"
+            android:enabled="false"
+            />
+        <ImageButton
+            android:id="@+id/procedimento_button_fim"
+            android:src="@drawable/date"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:onClick="horarioFinal"
+            android:layout_marginLeft="5dp"
+            android:scaleType="fitXY"
+            />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        >
+        <Button
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Salvar"
+            android:onClick="salvar"
+            android:textColor="#52ab7d"
+            android:background="@drawable/fundobotao"
+            android:id="@+id/procedimento_button_action"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Deletar"
+            android:onClick="deletar"
+            android:textColor="#FF0000"
+            android:background="@drawable/fundobotao"
+            android:id="@+id/procedimento_button_deletar"/>
+    </LinearLayout>
+
+</LinearLayout>
+
+</ScrollView>

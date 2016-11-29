@@ -32,6 +32,7 @@
     </LinearLayout>
 
     <ImageButton
+        android:id="@+id/novo_tratamento"
         android:src="@drawable/novo"
         android:background="@drawable/fundobotao"
     android:layout_width="60dp"
