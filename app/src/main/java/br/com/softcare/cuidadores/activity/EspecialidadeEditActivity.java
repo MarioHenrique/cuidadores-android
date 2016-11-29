@@ -33,6 +33,15 @@ public class EspecialidadeEditActivity extends Activity {
             Button button = (Button)findViewById(R.id.especialidade_button_deletar);
             button.setVisibility(View.GONE);
         }
+
+        Cuidador cuidador = (Cuidador) getIntent().getSerializableExtra(CuidadorActivity.EXTRA_CUIDADOR);
+        if (cuidador != null) {
+            findViewById(R.id.especialidade_button_action).setVisibility(View.GONE);
+            findViewById(R.id.especialidade_button_deletar).setVisibility(View.GONE);
+            findViewById(R.id.especialidade_descricao).setEnabled(false);
+            findViewById(R.id.especialidade_nome).setEnabled(false);
+        }
+
     }
 
     public void salvarEspecialidade(View view){
