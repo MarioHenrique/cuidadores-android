@@ -8,9 +8,13 @@ import android.widget.Button;
 
 import java.util.Set;
 
+import br.com.softcare.cuidadores.adapter.CuidadoresAdapter;
+import br.com.softcare.cuidadores.client.CuidadoresCliente;
+import br.com.softcare.cuidadores.client.WebServices;
 import br.com.softcare.cuidadores.dto.Cuidador;
 import br.com.softcare.cuidadores.enuns.Disponibilidade;
 import br.com.softcare.cuidadores.enuns.Periodo;
+import br.com.softcare.cuidadores.services.CuidadorService;
 import gp1.ihc.cuidadores.R;
 
 import static br.com.softcare.cuidadores.utils.Utils.activiCheckBox;
@@ -19,6 +23,8 @@ import static br.com.softcare.cuidadores.utils.Utils.setValorDaTextView;
 public class CuidadorActivity extends AppCompatActivity {
 
     private Cuidador cuidador = null;
+
+    public static final String EXTRA_CUIDADOR = "EXTRA_CUIDADOR";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -103,6 +109,13 @@ public class CuidadorActivity extends AppCompatActivity {
                 break;
         }
     }
+
+    public void listarEspecialidades(View view) {
+        Intent intent = new Intent(CuidadorActivity.this, EspecialidadeActivity.class);
+        intent.putExtra(EXTRA_CUIDADOR, cuidador);
+        startActivity(intent);
+    }
+
 
 
 

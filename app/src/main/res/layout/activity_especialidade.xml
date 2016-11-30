@@ -40,6 +40,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:onClick="novaEspecialidade"
+        android:id="@+id/especialidade_button_adicionar"
         />
 
 </RelativeLayout>

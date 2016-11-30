@@ -19,10 +19,16 @@ public class EspecialidadeActivity extends Activity {
 
     private List<EspecialidadeDTO> especialidades;
 
+    private Cuidador cuidador;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_especialidade);
+        cuidador = (Cuidador) getIntent().getSerializableExtra(CuidadorActivity.EXTRA_CUIDADOR);
+        if (cuidador != null) {
+            findViewById(R.id.especialidade_button_adicionar).setVisibility(View.GONE);
+        }
     }
 
     public void novaEspecialidade(View view){
@@ -50,6 +56,9 @@ public class EspecialidadeActivity extends Activity {
                 final Intent intent = new Intent(EspecialidadeActivity.this, EspecialidadeEditActivity.class);
                 EspecialidadeDTO especialidade = (EspecialidadeDTO)parent.getItemAtPosition(position);
                 intent.putExtra("especialidade",especialidade);
+                if (cuidador != null) {
+                    intent.putExtra(CuidadorActivity.EXTRA_CUIDADOR, cuidador);
+                }
                 startActivity(intent);
             }
         });
