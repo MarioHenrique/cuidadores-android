@@ -34,4 +34,8 @@ public class CuidadorService {
 	public List<EspecialidadeDTO> listarEspecialidades(String token) throws BusinessException {
 		return restExecuter.getList(token,API_URLS.API_CAREGIVE_SPECIALTY,EspecialidadeDTO.class);
 	}
+
+	public List<EspecialidadeDTO> listaEspecialidades(String token, Long id) throws BusinessException {
+		return restExecuter.getList(token,API_URLS.API_CAREGIVE_ID_SPECIALTY,EspecialidadeDTO.class,id);
+	}
 }

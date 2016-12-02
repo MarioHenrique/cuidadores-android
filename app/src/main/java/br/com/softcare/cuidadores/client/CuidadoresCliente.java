@@ -228,4 +228,8 @@ public final class CuidadoresCliente {
 	public void deletarProcedimento(Long contratoId, Long id) throws BusinessException {
 		propostaService.deletarProcimento(token,contratoId,id);
 	}
+
+	public List<EspecialidadeDTO> listarEspecialidades(Long id) throws BusinessException {
+		return cuidadoreService.listaEspecialidades(token,id);
+	}
 }

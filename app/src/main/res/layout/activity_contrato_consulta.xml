@@ -205,6 +205,125 @@ tools:context="br.com.softcare.cuidadores.activity.ContratoConsultaActivity">
 
     </LinearLayout>
 
+    <TextView
+        android:text="@string/disponibilidade"
+        android:textSize="20sp"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#52ab7d"
+        />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <CheckBox
+            android:enabled="false"
+            android:text="@string/segunda"
+            android:textColor="#52ab7d"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/contrato_visualizar_segunda" />
+
+        <CheckBox
+            android:enabled="false"
+            android:text="@string/terca"
+            android:textColor="#52ab7d"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/contrato_visualizar_terca" />
+
+        <CheckBox
+            android:enabled="false"
+            android:text="@string/quarta"
+            android:textColor="#52ab7d"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/contrato_visualizar_quarta"/>
+
+        <CheckBox
+            android:enabled="false"
+            android:text="@string/quinta"
+            android:textColor="#52ab7d"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/contrato_visualizar_quinta"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <CheckBox
+            android:enabled="false"
+            android:text="@string/sexta"
+            android:textColor="#52ab7d"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/contrato_visualizar_sexta" />
+
+        <CheckBox
+            android:enabled="false"
+            android:text="@string/sabado"
+            android:textColor="#52ab7d"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/contrato_visualizar_sabado" />
+
+        <CheckBox
+            android:enabled="false"
+            android:text="@string/domingo"
+            android:textColor="#52ab7d"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/contrato_visualizar_domingo"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:text="@string/periodo"
+        android:textSize="20sp"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#52ab7d"
+        />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <CheckBox
+            android:enabled="false"
+            android:text="@string/manha"
+            android:textColor="#52ab7d"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/contrato_visualizar_manha" />
+
+        <CheckBox
+            android:enabled="false"
+            android:text="@string/tarde"
+            android:textColor="#52ab7d"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/contrato_visualizar_tarde" />
+
+        <CheckBox
+            android:enabled="false"
+            android:text="@string/noite"
+            android:textColor="#52ab7d"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/contrato_visualizar_noite"/>
+
+    </LinearLayout>
+
+
     <LinearLayout
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"

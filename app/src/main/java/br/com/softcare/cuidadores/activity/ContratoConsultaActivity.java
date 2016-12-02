@@ -13,15 +13,19 @@ import android.widget.Toast;
 
 import java.util.HashMap;
 import java.util.LinkedHashMap;
+import java.util.List;
 
 import br.com.softcare.cuidadores.client.WebServices;
 import br.com.softcare.cuidadores.dto.LinkedMapTransferDTO;
 import br.com.softcare.cuidadores.dto.Usuario;
+import br.com.softcare.cuidadores.enuns.Disponibilidade;
 import br.com.softcare.cuidadores.enuns.Perfil;
+import br.com.softcare.cuidadores.enuns.Periodo;
 import br.com.softcare.cuidadores.enuns.Status;
 import gp1.ihc.cuidadores.R;
 
 import static android.R.attr.id;
+import static br.com.softcare.cuidadores.utils.Utils.activiCheckBox;
 
 public class ContratoConsultaActivity extends Activity {
 
@@ -49,6 +53,60 @@ public class ContratoConsultaActivity extends Activity {
         EditText dataFinal = (EditText)findViewById(R.id.contrato_consulta_data_final);
         dataFinal.setText((String)contrato.getLinked().get("propostalFinalDate"));
         statusAtual = Status.valueOf((String)contrato.getLinked().get("status"));
+        List<String> disponibilidade = (List)contrato.getLinked().get("availability");
+        if(disponibilidade!=null && !disponibilidade.isEmpty()) {
+            for (String disp : disponibilidade) {
+                ativarCheckBoxDisponibilidade(Disponibilidade.getByName(disp));
+            }
+        }
+        List<String> periodo = (List)contrato.getLinked().get("period");
+        if(periodo!=null && !periodo.isEmpty()) {
+            for (String per : periodo) {
+                ativarCheckBoxPeriodo(Periodo.getByName(per));
+            }
+        }
+    }
+
+    private void ativarCheckBoxDisponibilidade(Disponibilidade disp){
+        switch (disp){
+            case SEGUNDA:
+                activiCheckBox(this,R.id.contrato_visualizar_segunda);
+                break;
+            case TERCA:
+                activiCheckBox(this,R.id.contrato_visualizar_terca);
+                break;
+            case QUARTA:
+                activiCheckBox(this,R.id.contrato_visualizar_quarta);
+                break;
+            case QUINTA:
+                activiCheckBox(this,R.id.contrato_visualizar_quinta);
+                break;
+            case SEXTA:
+                activiCheckBox(this,R.id.contrato_visualizar_sexta);
+                break;
+            case SABADO:
+                activiCheckBox(this,R.id.contrato_visualizar_sabado);
+                break;
+            case DOMINGO:
+                activiCheckBox(this,R.id.contrato_visualizar_domingo);
+                break;
+        }
+
+    }
+
+    private void ativarCheckBoxPeriodo(Periodo per) {
+        switch (per){
+            case MANHA:
+                activiCheckBox(this,R.id.contrato_visualizar_manha);
+                break;
+            case TARDE:
+                activiCheckBox(this,R.id.contrato_visualizar_tarde);
+                break;
+            case NOITE:
+                activiCheckBox(this,R.id.contrato_visualizar_noite);
+                break;
+        }
+
     }
 
     public void adicionarProcedimentos(View view){

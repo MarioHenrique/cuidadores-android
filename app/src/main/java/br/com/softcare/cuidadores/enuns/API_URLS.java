@@ -7,6 +7,7 @@ public enum API_URLS {
 	+ "email={email}&contact={contact}&availability={availability}&period={period}&page={page}&pageSize={pageSize}"),
 
 	API_CAREGIVE_SPECIALTY("https://caregiver-api.herokuapp.com/api/caregiver/specialty"),
+	API_CAREGIVE_ID_SPECIALTY("https://caregiver-api.herokuapp.com/api/caregiver/{id}/specialty"),
 	API_CAREGIVE_SPECIALTY_ID("https://caregiver-api.herokuapp.com/api/caregiver/specialty/{id}"),
 	API_PATIENT("https://caregiver-api.herokuapp.com/api/patient/"),
 	API_PATIENT_ID("https://caregiver-api.herokuapp.com/api/patient/{id}"),

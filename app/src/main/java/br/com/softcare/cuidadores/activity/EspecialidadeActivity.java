@@ -44,7 +44,10 @@ public class EspecialidadeActivity extends Activity {
 
     @Override
     protected void operation() throws Exception {
-        especialidades = WebServices.cuidadores.listarEspecialidades();
+        if(cuidador==null)
+            especialidades = WebServices.cuidadores.listarEspecialidades();
+        else
+            especialidades = WebServices.cuidadores.listarEspecialidades(cuidador.getId());
     }
 
     @Override
